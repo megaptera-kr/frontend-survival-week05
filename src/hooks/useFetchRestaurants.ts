@@ -2,7 +2,7 @@ import { useFetch } from 'usehooks-ts';
 
 import Restaurant from '../types/Restaurant';
 
-const url = 'http://localhost:3000/restaurants';
+const url = 'http://localhost:3005/restaurants';
 
 interface Restaurants {
   [restaurants: string]: Restaurant[];
