@@ -2,11 +2,12 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  testDir: './tests', // 테스트는 여기에 있어
   retries: 0,
   use: {
+    channel: 'chrome',
     baseURL: 'http://localhost:8080',
-    headless: !!process.env.CI,
+    headless: !!process.env.CI, // CI 환경이 잡혀 있으면 headless로 한다.
     screenshot: 'only-on-failure',
   },
 };
