@@ -9,7 +9,7 @@ import Food from '../types/Food';
 
 type CartProps = {
   setReceipt: (receipt: Receipt) => void;
-}
+};
 
 export default function Cart({ setReceipt }: CartProps) {
   const [selectedFoods, setFoods] = useLocalStorage<Food[]>('cart', []);
@@ -37,9 +37,7 @@ export default function Cart({ setReceipt }: CartProps) {
 
   return (
     <div style={{ marginBottom: '3rem' }}>
-      <h2>
-        점심 바구니
-      </h2>
+      <h2>점심 바구니</h2>
       <ul style={{ width: '20%' }}>
         {selectedFoods.map((food, index) => {
           const { id } = food;
@@ -47,10 +45,7 @@ export default function Cart({ setReceipt }: CartProps) {
           const key = `${id}-${index}`;
 
           return (
-            <MenuItem
-              key={key}
-              food={food}
-            >
+            <MenuItem key={key} food={food}>
               <button
                 style={{ marginLeft: '.5rem' }}
                 type="button"
@@ -62,10 +57,7 @@ export default function Cart({ setReceipt }: CartProps) {
           );
         })}
       </ul>
-      <button
-        type="button"
-        onClick={handleClickOrder}
-      >
+      <button type="button" onClick={handleClickOrder}>
         합계:
         {' '}
         {totalPrice.toLocaleString()}
