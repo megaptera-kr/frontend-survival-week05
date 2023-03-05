@@ -28,5 +28,7 @@ jobs:
         run: npx jest --verbose --coverage
       - name: Build
         run: npm run build
+      - name: Msw setup
+        run: npx msw init static --save
       - name: Run E2E test
         run: HEADLESS=true npm run ci
