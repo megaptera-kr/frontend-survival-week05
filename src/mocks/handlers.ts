@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { rest } from 'msw';
 
-const BASE_URL = 'http://localhost:3005';
+const BASE_URL = 'http://localhost:3000';
 
 const handlers = [
   rest.get(`${BASE_URL}/restaurants`, (req, res, ctx) => {
