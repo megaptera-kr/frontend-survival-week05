@@ -1,33 +1,15 @@
 // TODO: Express 를 이용하여 서버를 만들어 주세요.
 import express from 'express';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import cors from 'cors';
-
-const port = 3000;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
+  res.send(req);
 });
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
-
-// type menuType = {
-//   id: string,
-//   name: string,
-//   price: number,
-// }
-
-// type orderType = {
-//   menu: menuType[],
-//   totalPrice: number,
-// }
-
-// const orders: unknown[] = [];
 
 app.post('/orders', (req, res) => {
   const { menu, totalPrice } = req.body;
@@ -80,8 +62,3 @@ app.get('/restaurants', (req, res) => {
 
   res.send({ restaurants });
 });
-
-// app.post('/orders', (req: Request<orderType>, res: Response) => {
-//   orders.push(req);
-//   res.send({ orders });
-// });
