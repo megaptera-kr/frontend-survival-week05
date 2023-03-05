@@ -14,7 +14,7 @@ const handlers = [
   rest.get(`${BASE_URL}/restaurants`, (req, res, ctx) => {
     const { restaurants } = fixtures;
 
-    return res(ctx.status(200), ctx.delay(4000), ctx.json({ restaurants }));
+    return res(ctx.status(200), ctx.json({ restaurants }));
   }),
 
   rest.post<PostReqBody>(`${BASE_URL}/orders`, (req, res, ctx) => {
