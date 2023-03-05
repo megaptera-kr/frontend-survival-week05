@@ -6,5 +6,6 @@ test('App', async () => {
 
   await waitFor(() => {
     screen.getByText('푸드코트 키오스크');
+    screen.getByText('메가반점');
   });
 });

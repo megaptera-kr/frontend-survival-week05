@@ -1,6 +1,6 @@
 import Food from '../types/Food';
 
-const url = 'http://localhost:3005/orders';
+const url = 'http://localhost:3000/orders';
 
 export default function useCreateOrder() {
   const createOrder = async (menu: Food[], totalPrice: number) => {

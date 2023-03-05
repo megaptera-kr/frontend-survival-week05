@@ -1,5 +1,5 @@
 const receipt = {
-  id: '1677831858885',
+  id: Date.now().toString(),
   menu: [
     {
       id: '1',
@@ -12,11 +12,16 @@ const receipt = {
       price: 8000,
     },
     {
-      id: '3',
-      name: '차돌짬뽕',
+      id: '5',
+      name: '김밥',
+      price: 3500,
+    },
+    {
+      id: '9',
+      name: '기본카레',
       price: 9000,
     },
   ],
-  totalPrice: 25000,
+  totalPrice: 28500,
 };
 export default receipt;
