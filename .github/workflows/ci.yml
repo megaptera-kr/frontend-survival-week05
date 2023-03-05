@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-      types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -28,5 +28,7 @@ jobs:
         run: npx jest --verbose --coverage
       - name: Build
         run: npm run build
+      - name: msw setup
+        run: npx msw init dist/ --save
       - name: Run E2E test
         run: HEADLESS=true npm run ci
