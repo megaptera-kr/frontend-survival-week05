@@ -2,8 +2,15 @@ import { render } from '@testing-library/react';
 
 import Cart from './Cart';
 
-describe('App ', () => {
+describe('Cart ', () => {
   it('renders without crash', () => {
-    render(<Cart />);
+    const setReceipt = () => {
+
+    }
+    render((
+      <Cart 
+        setReceipt={setReceipt}
+      />
+    ));
   });
 });
