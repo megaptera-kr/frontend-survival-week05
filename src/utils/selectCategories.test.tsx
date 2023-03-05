@@ -4,9 +4,9 @@ import fixtures from '../fixtures';
 import selectCategories from './selectCategories';
 
 test('selectCategories', () => {
-	const { restaurants } = fixtures;
-	
-	waitFor(() => {
-		expect(selectCategories(restaurants).length).toEqual(1);
-	});
+  const { restaurants } = fixtures;
+
+  waitFor(() => {
+    expect(selectCategories(restaurants).length).toEqual(1);
+  });
 });

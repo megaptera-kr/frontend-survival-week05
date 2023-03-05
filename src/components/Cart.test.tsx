@@ -4,11 +4,9 @@ import Cart from './Cart';
 
 describe('Cart ', () => {
   it('renders without crash', () => {
-    const setReceipt = () => {
-
-    }
+    const setReceipt = jest.fn();
     render((
-      <Cart 
+      <Cart
         setReceipt={setReceipt}
       />
     ));

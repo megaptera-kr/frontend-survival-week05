@@ -1,24 +1,21 @@
-import { render, screen } from "@testing-library/react"
-import SearchBar from "./SearchBar"
+import { render, screen } from '@testing-library/react';
+import SearchBar from './SearchBar';
 
 test('SearchBar', () => {
   // given
-  const setFilterText = () => {
+  const setFilterText = jest.fn();
+  const setFilterCategory = jest.fn();
 
-  }
-  const setFilterCategory = () => {
-
-  }
   // when
   render((
     <SearchBar
       categories={['a']}
-      filterText=''
+      filterText=""
       setFilterText={setFilterText}
       setFilterCategory={setFilterCategory}
     />
   ));
 
   // then
-  screen.getByLabelText('검색')
-})
+  screen.getByLabelText('검색');
+});

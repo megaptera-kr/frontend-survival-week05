@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react"
-import fixtures from "../fixtures";
-import RestaurantRow from "./RestaurantRow"
+import { render, screen } from '@testing-library/react';
+import fixtures from '../fixtures';
+import RestaurantRow from './RestaurantRow';
 
 test('RestaurantRow', () => {
   // given
-  const restaurants = fixtures.restaurants;
-  
+  const { restaurants } = fixtures;
+
   // when
   render((
     <table>
@@ -35,4 +35,4 @@ test('RestaurantRow', () => {
 
   // then
   screen.getByText('메가반점');
-})
+});

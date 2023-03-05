@@ -1,6 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react"
-import fixtures from "../fixtures";
-import ReceiptPrinter from "./ReceiptPrinter"
+import { render, screen, waitFor } from '@testing-library/react';
+import fixtures from '../fixtures';
+import ReceiptPrinter from './ReceiptPrinter';
 
 test('ReceiptPrinter', async () => {
   // given
@@ -12,12 +12,12 @@ test('ReceiptPrinter', async () => {
   // when
   render((
     <ReceiptPrinter
-      receipt = {receipt}
+      receipt={receipt}
     />
   ));
 
   // then
   await waitFor(() => {
-		screen.getByText(/1,000/);
-	});
-})
+    screen.getByText(/1,000/);
+  });
+});

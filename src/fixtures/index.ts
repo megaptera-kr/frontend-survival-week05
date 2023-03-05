@@ -1,3 +1,3 @@
-import restaurants from "./restaurants";
+import restaurants from './restaurants';
 
-export default {restaurants};
+export default { restaurants };

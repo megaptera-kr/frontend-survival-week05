@@ -1,5 +1,5 @@
-import fixtures from "../../fixtures";
+import fixtures from '../../fixtures';
 
-const useFetchRestaurants = jest.fn(() => fixtures.restaurants)
+const useFetchRestaurants = jest.fn(() => fixtures.restaurants);
 
 export default useFetchRestaurants;
