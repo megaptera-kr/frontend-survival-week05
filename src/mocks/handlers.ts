@@ -3,15 +3,13 @@ import { rest } from 'msw';
 
 import fixtures from '../fixtures';
 
-import Food from '../types/Food';
-
 const BASE_URL = 'http://localhost:3000';
 
 const handlers = [
   rest.get(`${BASE_URL}/restaurants`, (req, res, ctx) => res(ctx.status(200), ctx.json({ restaurants: fixtures.restaurants }))),
 
-  rest.post(`${BASE_URL}/orders`, (req, res, ctx) => {
-    const { menu, totalPrice } = req.body as { menu: Food; totalPrice: number };
+  rest.post(`${BASE_URL}/orders`, async (req, res, ctx) => {
+    const { menu, totalPrice } = await req.json();
 
     const receiptId = new Date().getTime();
 
