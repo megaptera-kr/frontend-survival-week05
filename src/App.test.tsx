@@ -4,7 +4,7 @@ import App from './App';
 
 import fixtures from './fixtures';
 
-// jest.mock('./hooks/useFetchRestaurants', () => () => fixtures.restaurants);
+jest.mock('./hooks/useFetchRestaurants', () => () => fixtures.restaurants);
 
 describe('App ', () => {
   it('renders without crash', async () => {
