@@ -1,8 +1,9 @@
-import { rest } from "msw";
-import fixtures from "../fixtures";
-import Food from "../types/Food";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { rest } from 'msw';
+import fixtures from '../fixtures';
+import Food from '../types/Food';
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = 'http://localhost:3000';
 
 interface PostReqBody {
   menu: Food[];

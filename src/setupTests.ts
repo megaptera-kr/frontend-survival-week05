@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import { server } from './mocks/server';
+import server from './mocks/server';
 // import { worker } from './mocks/browser';
 
 // const isServer = typeof window === undefined;
