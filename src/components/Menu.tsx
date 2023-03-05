@@ -8,16 +8,13 @@ import Food from '../types/Food';
 
 type MenuProps = {
   menu: Food[];
-} & HTMLAttributes<Element> ;
+} & HTMLAttributes<Element>;
 
 export default function Menu({ menu }: MenuProps) {
   const [selectedFoods, selectFood] = useLocalStorage<Food[]>('cart', []);
 
   const handleClickSelect = (food: Food) => {
-    selectFood([
-      ...selectedFoods,
-      food,
-    ]);
+    selectFood([...selectedFoods, food]);
   };
 
   return (
@@ -28,13 +25,11 @@ export default function Menu({ menu }: MenuProps) {
         const key = `${id}-${index}`;
 
         return (
-          <MenuItem
-            key={key}
-            food={food}
-          >
+          <MenuItem key={key} food={food}>
             <button
               style={{ marginLeft: '.5rem' }}
               name={`#${food.name}`}
+              data-testid={`#${food.name}`}
               type="button"
               onClick={() => handleClickSelect(food)}
             >
