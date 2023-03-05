@@ -13,7 +13,6 @@ export default function useCreateOrder() {
     });
 
     const { receipt } = await response.json();
-
     return receipt;
   };
 

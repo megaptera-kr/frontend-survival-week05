@@ -12,7 +12,6 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
   }
 
   const { id, menu, totalPrice } = receipt;
-
   return (
     <div style={{
       width: '50%',
@@ -41,10 +40,7 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
         </ul>
       </div>
       <p>
-        총 가격:
-        {' '}
-        {totalPrice.toLocaleString()}
-        원
+        {`총 가격: ${totalPrice.toLocaleString()}원`}
       </p>
     </div>
   );
