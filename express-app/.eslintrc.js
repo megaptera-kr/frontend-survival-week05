@@ -22,7 +22,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'import/no-unresolved' : 'off',
+    'import/no-unresolved': 'off',
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
