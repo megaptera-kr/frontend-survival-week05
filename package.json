@@ -64,6 +64,6 @@
     "usehooks-ts": "^2.9.1"
   },
   "msw": {
-    "workerDirectory": ""
+    "workerDirectory": "/"
   }
 }
