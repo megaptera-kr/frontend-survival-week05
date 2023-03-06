@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { setupServer } from 'msw/node';
+import { setupWorker } from 'msw';
 
 import handlers from './handlers';
 
-const server = setupServer(...handlers);
+const server = setupWorker(...handlers);
 
 export default server;

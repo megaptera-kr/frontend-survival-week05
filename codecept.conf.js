@@ -16,7 +16,6 @@ exports.config = {
     Playwright: {
       url: 'http://localhost:8080',
       show: true,
-      headless: !!process.env.CI,
       browser: 'chromium',
     },
   },
