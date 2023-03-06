@@ -5,24 +5,28 @@ type SearchBarProps = {
   filterText: string;
   setFilterText: (text: string) => void;
   setFilterCategory: (text: string) => void;
-}
+};
 
 export default function SearchBar({
-  categories, filterText, setFilterText, setFilterCategory,
+  categories,
+  filterText,
+  setFilterText,
+  setFilterCategory,
 }: SearchBarProps) {
   return (
     <div>
       <TextField
         label="검색"
         placeholder="식당 이름"
-        filterText={filterText}
-        setFilterText={setFilterText}
+        text={filterText}
+        setText={setFilterText}
       />
-      <ul style={{
-        display: 'flex',
-        padding: 0,
-        listStyle: 'none',
-      }}
+      <ul
+        style={{
+          display: 'flex',
+          padding: 0,
+          listStyle: 'none',
+        }}
       >
         {['전체', ...categories].map((category: string) => (
           <li
@@ -31,10 +35,7 @@ export default function SearchBar({
               marginRight: '1rem',
             }}
           >
-            <button
-              type="button"
-              onClick={() => setFilterCategory(category)}
-            >
+            <button type="button" onClick={() => setFilterCategory(category)}>
               {category}
             </button>
           </li>

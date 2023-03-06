@@ -27,12 +27,15 @@ export default function App() {
     }
   }, [receipt]);
 
-  useInterval(() => {
-    if (receipt.id) {
-      setReceipt(emptyReceipt);
-      setFalse();
-    }
-  }, value ? 5000 : null);
+  useInterval(
+    () => {
+      if (receipt.id) {
+        setReceipt(emptyReceipt);
+        setFalse();
+      }
+    },
+    value ? 5000 : null,
+  );
 
   return (
     <div>
