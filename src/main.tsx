@@ -4,13 +4,13 @@ import App from './App';
 
 import worker from './mocks/browser';
 
-worker.start();
-
 function main() {
   const container = document.getElementById('root');
   if (!container) {
     return;
   }
+
+  worker.start();
 
   const root = ReactDOM.createRoot(container);
   root.render(<App />);
