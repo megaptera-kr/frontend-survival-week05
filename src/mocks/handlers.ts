@@ -1,25 +1,24 @@
 import { rest } from 'msw';
 import { restaurants, orders } from '../fixtures';
-
+import Food from '../types/Food';
 const BASE_URL = 'http://localhost:3000';
 
 const handlers = [
-  rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(
-    ctx.status(200),
-    ctx.json({ restaurants }),
-  )),
-  rest.get(`${BASE_URL}/orders`, (req, res, ctx) => res(
-    ctx.status(200),
-    ctx.json({ orders }),
-  )),
-  rest.post(`${BASE_URL}/orders`, (req, res, ctx) => {
-    const { menu, totalPrice } = req.body as any;
-
-    return res(
-      ctx.status(201),
-      ctx.json({ id: new Date().getTime(), totalPrice, menu }),
-    );
-  }),
+    rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(
+        ctx.status(200),
+        ctx.json({ restaurants }),
+    )),
+    rest.get(`${BASE_URL}/orders`, (req, res, ctx) => res(
+        ctx.status(200),
+        ctx.json({ orders }),
+    )),
+    rest.post<{ id: string, totalPrice: number, menu: Food[] }>(`${BASE_URL}/orders`, (req, res, ctx) => {
+        const { menu, totalPrice } = req.body;
+        return res(
+            ctx.status(201),
+            ctx.json({ id: new Date().getTime(), totalPrice, menu }),
+        );
+    }),
 ];
 
 export default handlers;
