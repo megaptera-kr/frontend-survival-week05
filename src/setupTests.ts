@@ -1,5 +1,5 @@
 import server from './mocks/server';
-import 'whatwg-fetch'
+import 'whatwg-fetch';
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 

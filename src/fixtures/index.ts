@@ -1,4 +1,4 @@
-import { restaurants } from './restaurants';
-import { orders } from './orders';
+import restaurants from './restaurants';
+import orders from './orders';
 
 export { restaurants, orders };

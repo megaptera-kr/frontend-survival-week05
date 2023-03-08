@@ -1,10 +1,10 @@
-import { renderHook, waitFor } from "@testing-library/react";
-import { restaurants } from "../fixtures";
+import { renderHook, waitFor } from '@testing-library/react';
+import { restaurants } from '../fixtures';
 import useCreateOrder from './useCreateOrder';
 
 test('useCreateOrder fetch test', async () => {
   const { result: { current: { createOrder } } } = renderHook(() => useCreateOrder());
-  const menu = restaurants[0].menu;
+  const { menu } = restaurants[0];
   const totalPrice = menu.reduce((pre, { price }) => pre + price, 0);
   const receipt = await createOrder(menu, totalPrice);
   waitFor(() => {
@@ -13,5 +13,5 @@ test('useCreateOrder fetch test', async () => {
     expect(receipt).toHaveProperty('menu');
     expect(receipt.totalPrice).toBe(totalPrice);
     expect(receipt.menu).toEqual(menu);
-  })
+  });
 });
