@@ -16,7 +16,7 @@ const handlers = [
   }),
   rest.post(`${BASE_URL}/orders`, async (req, res, ctx) => {
     const { menu, totalPrice } = await req.json();
-
+    console.log(menu, totalPrice);
     const receiptId = new Date().getTime();
 
     return res(
