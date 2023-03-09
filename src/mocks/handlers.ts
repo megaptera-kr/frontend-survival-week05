@@ -78,6 +78,20 @@ const handlers = [
       ctx.json({ restaurants }),
     );
   }),
+
+  rest.post(`${BASE_URL}/orders`, async (req, res, ctx) => {
+    const { menu, totalPrice } = await req.json();
+    const receipt = {
+      id: new Date().getTime(),
+      menu,
+      totalPrice,
+    };
+
+    return res(
+      ctx.status(201),
+      ctx.json({ receipt }),
+    );
+  }),
 ];
 
 export default handlers;
