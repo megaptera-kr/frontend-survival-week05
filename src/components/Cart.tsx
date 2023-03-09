@@ -29,6 +29,7 @@ export default function Cart({ setReceipt }: CartProps) {
     }
 
     const receipt = await createOrder(selectedFoods, totalPrice);
+    console.log(receipt, 'cart의 receipt');
 
     setReceipt(receipt);
 
