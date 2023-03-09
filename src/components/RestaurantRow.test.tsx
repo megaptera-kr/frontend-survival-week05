@@ -10,8 +10,8 @@ describe('<RestaurantRow />', () => {
       container: document.body.appendChild(document.createElement('tbody')),
     });
 
-    screen.getByText('양식');
-    screen.getByText('롤링파스타');
+    screen.getByText('중식');
+    screen.getByText('메가반점');
     screen.getByTestId('Menu');
   });
 });

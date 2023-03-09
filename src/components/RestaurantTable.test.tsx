@@ -21,8 +21,7 @@ describe('<RestaurantTable />', () => {
     // 어떤 결과가 나오는지를 테스트하는 식으로 작성하려함
     // 근데 이렇게하면 결국 상위컴포넌트는 하위 컴포넌트에 의존적임
     // screen.getByTestId('RestaurantRow');
-    screen.getByText(/까르보나라/);
-    screen.getByText(/고르곤졸라/);
-    screen.getByText(/봉골레/);
+    screen.getByText(/짜장면/);
+    screen.getByText(/탕수육/);
   });
 });

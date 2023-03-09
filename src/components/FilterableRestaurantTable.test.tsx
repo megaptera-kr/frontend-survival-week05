@@ -21,14 +21,14 @@ describe('<FilterableRestaurantTable />', () => {
     // queryByText와 getByText 사용시 차이 : queryBy는 없어도 에러 X
     // toBeInTheDocument와 toBeTruthy 사용시차이
     fireEvent.click(screen.getByRole('button', { name: '중식' }));
-    expect(screen.queryByText(/까르보나라/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/참치김밥/)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: '전체' }));
-    expect(screen.queryByText(/까르보나라/)).toBeInTheDocument();
+    expect(screen.queryByText(/참치김밥/)).toBeInTheDocument();
     expect(screen.queryByText(/짜장면/)).toBeInTheDocument();
 
     fireEvent.change(screen.getByPlaceholderText('식당 이름'), {
-      target: { value: '롤링' },
+      target: { value: '메리' },
     });
     expect(screen.queryByText(/짜장면/)).not.toBeInTheDocument();
   });

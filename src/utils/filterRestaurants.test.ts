@@ -36,18 +36,18 @@ describe('filterRestaurants', () => {
       expect(
         filterRestaurants(fixtures.restaurants, {
           ...defaultFilterConditions,
-          filterCategory: '양식',
+          filterCategory: '일식',
         })[0].category,
-      ).toBe('양식');
+      ).toBe('일식');
     });
 
     it('returns restaurants with corresponding filterText', () => {
       expect(
         filterRestaurants(fixtures.restaurants, {
           ...defaultFilterConditions,
-          filterText: '홍콩',
+          filterText: '메가',
         })[0].name,
-      ).toBe('홍콩반점');
+      ).toBe('메가반점');
     });
   });
 });

@@ -17,7 +17,7 @@ describe('<MenuItem />', () => {
   it('has span with name and price', () => {
     setup();
 
-    screen.getByText(/까르보나라/);
+    screen.getByText(/짜장면/);
     screen.getByText(/8,000/);
   });
 

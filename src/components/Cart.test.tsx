@@ -31,8 +31,8 @@ describe('<Cart />', () => {
   it('renders selectFood from localStorage', () => {
     setup();
 
-    screen.getByText(/까르보나라/);
-    screen.getByText(/고르곤졸라/);
+    screen.getByText(/짜장면/);
+    screen.getByText(/짬뽕/);
   });
 
   // it('remove selectFood in localStorage', () => {

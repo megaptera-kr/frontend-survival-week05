@@ -18,8 +18,8 @@ describe('<ReceiptPrinter />', () => {
 
     screen.getByText('486');
     screen.getByText(/45,000/);
-    screen.getByText(/까르보나라/); // check rendering menuItem
-    screen.getByText(/고르곤졸라/);
+    screen.getByText(/짜장면/); // check rendering menuItem
+    screen.getByText(/차돌짬뽕/);
   });
 
   context('with no receipt id', () => {
