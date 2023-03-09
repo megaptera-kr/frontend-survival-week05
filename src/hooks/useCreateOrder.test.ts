@@ -7,7 +7,7 @@ test('useCreateOrder fetch test', async () => {
   const { menu } = restaurants[0];
   const totalPrice = menu.reduce((pre, { price }) => pre + price, 0);
   const receipt = await createOrder(menu, totalPrice);
-  waitFor(() => {
+  await waitFor(() => {
     expect(receipt).toHaveProperty('id');
     expect(receipt).toHaveProperty('totalPrice');
     expect(receipt).toHaveProperty('menu');

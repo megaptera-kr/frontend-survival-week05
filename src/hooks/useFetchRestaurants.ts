@@ -9,7 +9,7 @@ interface Restaurants {
 }
 
 export default function useFetchRestaurants() {
-  const { data, error } = useFetch<Restaurants>(url);
+  const { data } = useFetch<Restaurants>(url);
 
   if (!data) {
     return [];
