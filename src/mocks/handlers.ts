@@ -5,15 +5,11 @@ import Food from '../types/Food';
 const BASE_URL = 'http://localhost:3000';
 
 const handlers = [
-  rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(
+  rest.get(`${BASE_URL}/restaurants`, (req, res, ctx) => res(
     ctx.status(200),
     ctx.json({ restaurants }),
   )),
-  rest.get(`${BASE_URL}/orders`, (req, res, ctx) => res(
-    ctx.status(200),
-    ctx.json({ orders }),
-  )),
-  rest.post<{ id: string, totalPrice: number, menu: Food[] }>(`${BASE_URL}/orders`, (req, res, ctx) => {
+  rest.post<{ totalPrice: number, menu: Food[] }>(`${BASE_URL}/orders`, (req, res, ctx) => {
     const { menu, totalPrice } = req.body;
     return res(
       ctx.status(201),
