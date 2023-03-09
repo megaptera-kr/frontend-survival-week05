@@ -21,7 +21,7 @@ export default function Menu({ menu }: MenuProps) {
   };
 
   return (
-    <ul>
+    <ul data-testid="Menu">
       {menu.map((food, index) => {
         const { id } = food;
 
