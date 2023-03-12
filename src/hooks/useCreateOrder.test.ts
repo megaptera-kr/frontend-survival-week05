@@ -12,7 +12,7 @@ describe('useCreateOrder', () => {
   it('createOrder 함수는 receipt 를 반환한다.', async () => {
     const { result } = renderHook(() => useCreateOrder());
 
-    const receipt = await result.current.createOrder(fixtures.menus, 30000);
+    const receipt = await result.current.createOrder(fixtures.menus, 28500);
 
     expect(receipt).toEqual(fixtures.receipt);
   });

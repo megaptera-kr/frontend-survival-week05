@@ -24,7 +24,7 @@ describe('Cart ', () => {
     renderCart();
 
     expect(screen.getByText('짜장면(8,000원)'));
-    expect(screen.getByText('탕수육(14,000원)'));
+    expect(screen.getByText('짬뽕(8,000원)'));
   });
 
   it('취소 버튼 클릭 시 setMenus 함수 호출', () => {
@@ -40,7 +40,7 @@ describe('Cart ', () => {
   it('주문 버튼 클릭 시 setReceipt 함수 호출', async () => {
     renderCart();
 
-    const orderButton = screen.getByText('합계: 30,000원 주문');
+    const orderButton = screen.getByText('합계: 28,500원 주문');
 
     fireEvent.click(orderButton);
 

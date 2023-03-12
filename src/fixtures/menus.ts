@@ -10,9 +10,14 @@ const menus = [
     price: 8000,
   },
   {
-    id: '3',
-    name: '탕수육',
-    price: 14000,
+    id: '5',
+    name: '김밥',
+    price: 3500,
+  },
+  {
+    id: '9',
+    name: '기본카레',
+    price: 9000,
   },
 ];
 
