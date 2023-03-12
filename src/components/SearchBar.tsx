@@ -15,8 +15,8 @@ export default function SearchBar({
       <TextField
         label="검색"
         placeholder="식당 이름"
-        filterText={filterText}
-        setFilterText={setFilterText}
+        text={filterText}
+        setText={setFilterText}
       />
       <ul style={{
         display: 'flex',
