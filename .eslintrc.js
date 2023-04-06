@@ -28,6 +28,7 @@ module.exports = {
   },
   rules: {
     indent: ['error', 2],
+    'linebreak-style': 0,
     'no-trailing-spaces': 'error',
     curly: 'error',
     'brace-style': 'error',
