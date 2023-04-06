@@ -4,7 +4,7 @@ import Receipt from '../types/Receipt';
 
 type ReceiptPrinterProps = {
   receipt: Receipt;
-}
+};
 
 export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
   if (!receipt.id) {
@@ -14,11 +14,12 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
   const { id, menu, totalPrice } = receipt;
 
   return (
-    <div style={{
-      width: '50%',
-      border: '1px solid black',
-      textAlign: 'center',
-    }}
+    <div
+      style={{
+        width: '50%',
+        border: '1px solid black',
+        textAlign: 'center',
+      }}
     >
       <h2>영수증</h2>
       <div>
@@ -27,23 +28,24 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
       </div>
       <div>
         <h3>주문목록</h3>
-        <ul style={{
-          padding: 0,
-          listStyle: 'none',
-        }}
+        <ul
+          style={{
+            padding: 0,
+            listStyle: 'none',
+          }}
         >
           {menu.map((food, index) => {
             const key = `${food.id}-${index}`;
-            return (
-              <MenuItem key={key} food={food} />
-            );
+            return <MenuItem key={key} food={food} />;
           })}
         </ul>
       </div>
       <p>
         총 가격:
-        {' '}
-        {totalPrice.toLocaleString()}
+        <span>
+          {' '}
+          {totalPrice.toLocaleString()}
+        </span>
         원
       </p>
     </div>
