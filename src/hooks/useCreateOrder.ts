@@ -12,8 +12,7 @@ export default function useCreateOrder() {
       body: JSON.stringify({ menu, totalPrice }),
     });
 
-    const { receipt } = await response.json();
-
+    const receipt = await response.json();
     return receipt;
   };
 
