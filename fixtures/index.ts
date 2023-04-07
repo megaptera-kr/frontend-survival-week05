@@ -1,9 +1,3 @@
-import foods from './foods';
-import receipt from './receipt';
-import restaurants from './restaurants';
-
-export default {
-  foods,
-  receipt,
-  restaurants,
-};
+export { default as foods } from './foods';
+export { default as receipt } from './receipt';
+export { default as restaurants } from './restaurants';

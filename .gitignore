@@ -109,3 +109,6 @@ dist
 
 # CodeceptJS
 output/
+
+# E2E screenshot
+test-result/
