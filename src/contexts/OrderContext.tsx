@@ -4,7 +4,7 @@ import {
 import { useLocalStorage } from 'usehooks-ts';
 import { Menu, Receipt } from '../types/restaurant';
 
-type OrderContextValue = {
+export type OrderContextValue = {
   cart: Menu[]
   setCart?: Dispatch<SetStateAction<Menu[]>>
   receipt: Receipt | null

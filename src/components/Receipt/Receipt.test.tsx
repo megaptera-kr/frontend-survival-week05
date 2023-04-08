@@ -1,22 +1,22 @@
 import { render, screen } from '@testing-library/react';
 import Receipt from '.';
-import { OrderContext } from '../../contexts/OrderContext';
+import { OrderContext, OrderContextValue } from '../../contexts/OrderContext';
 import receipt from '../../../fixtures/receipt';
+
+const renderReceipt = (props: OrderContextValue) => {
+  render(<Receipt />, {
+    wrapper: ({ children }) => (
+      <OrderContext.Provider value={props}>
+        {children}
+      </OrderContext.Provider>
+    ),
+  });
+};
 
 describe('<Receipt/>', () => {
   it('OrderContext에 receipt가 있는 경우, 영수증 정보를 화면에 렌더링 해야 합니다.', () => {
     // Given, When
-    render(<Receipt />, {
-      wrapper: ({ children }) => (
-        <OrderContext.Provider value={{
-          cart: [],
-          receipt,
-        }}
-        >
-          {children}
-        </OrderContext.Provider>
-      ),
-    });
+    renderReceipt({ cart: [], receipt });
 
     const receiptTitle = screen.getByRole('heading', { name: /영수증/i });
     const orderNumber = screen.getByRole('heading', { name: /주문번호/i });

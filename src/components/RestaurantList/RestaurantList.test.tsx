@@ -1,22 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import RestaurantList from '.';
-import { RestaurantContext } from '../../contexts/RestaurantContext';
+import { RestaurantContext, RestaurantContextValue } from '../../contexts/RestaurantContext';
 import restaurants from '../../../fixtures/restaurants';
 import { Restaurant } from '../../types/restaurant';
+
+const renderRestaurantList = (props: RestaurantContextValue) => {
+  render(<RestaurantList />, {
+    wrapper: ({ children }) => (
+      <RestaurantContext.Provider value={props}>
+        {children}
+      </RestaurantContext.Provider>
+    ),
+  });
+};
 
 describe('<RestaurantList/>', () => {
   it('RestaurantContext에 restaurants이 있는 경우, 레스토랑 목록을 화면에 렌더링 해야 합니다.', () => {
     // Given, When
-    render(<RestaurantList />, {
-      wrapper: ({ children }) => (
-        <RestaurantContext.Provider value={{
-          restaurants: restaurants as Restaurant[],
-          searchParams: { name: '', category: '전체' },
-        }}
-        >
-          {children}
-        </RestaurantContext.Provider>
-      ),
+    renderRestaurantList({
+      restaurants: restaurants as Restaurant[],
+      searchParams: { name: '', category: '전체' },
     });
 
     const restaurant1 = screen.getByText(/메가반점/i);

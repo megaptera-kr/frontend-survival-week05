@@ -9,7 +9,7 @@ export type SearchParams = {
   category: Category,
 }
 
-type RestaurantContextValue = {
+export type RestaurantContextValue = {
   restaurants: Restaurant[]
   searchParams: SearchParams
   searchRestaurants?: (searchParams: SearchParams) => void
