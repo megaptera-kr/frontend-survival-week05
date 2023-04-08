@@ -5,6 +5,7 @@ export default function CategoryButtonField() {
     <div style={{ marginTop: 15, marginBottom: 15 }}>
       {categories.map((category) => (
         <button
+          key={category}
           style={{ marginRight: 15 }}
           type="button"
         >
