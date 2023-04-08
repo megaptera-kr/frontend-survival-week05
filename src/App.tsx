@@ -1,20 +1,9 @@
-import { useFetch } from 'usehooks-ts';
-import Restaurants from './types/Restaurants';
+import useFetchRestaurants from './hooks/useFetchRestaurants';
 import SearchBar from './components/SearchBar';
 import FilterableRestaurantsTable from './components/FilterableRestaurantsTable';
 
 export default function App() {
-  const fetchRestaurants = () => {
-    const url = 'http://localhost:3000/restaurants';
-    const { data } = useFetch<{restaurants: Restaurants[]}>(url);
-    if (!data) {
-      return [];
-    }
-    console.log(data.restaurants);
-    return data.restaurants;
-  };
-
-  const restaurants = fetchRestaurants();
+  const restaurants = useFetchRestaurants();
 
   return (
     <>
