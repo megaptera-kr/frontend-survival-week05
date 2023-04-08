@@ -8,6 +8,5 @@ export default function useFetchRestaurants() {
     return [];
   }
 
-  console.log(data.restaurants);
   return data.restaurants;
 }

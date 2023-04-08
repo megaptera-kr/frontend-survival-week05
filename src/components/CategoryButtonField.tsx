@@ -1,4 +1,8 @@
-export default function CategoryButtonField() {
+interface CategoryButtonFieldProps {
+  onClick: (name: string) => void;
+}
+
+export default function CategoryButtonField({ onClick }: CategoryButtonFieldProps) {
   const categories = ['전체', '중식', '한식', '일식'];
 
   return (
@@ -6,8 +10,10 @@ export default function CategoryButtonField() {
       {categories.map((category) => (
         <button
           key={category}
-          style={{ marginRight: 15 }}
           type="button"
+          name={category}
+          style={{ marginRight: 15 }}
+          onClick={() => onClick(category)}
         >
           {category}
         </button>
