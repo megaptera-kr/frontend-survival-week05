@@ -1,13 +1,16 @@
 interface OrderButtonFieldProps {
   totalPrice: number;
+  onClickOrder: () => void;
 }
 
 export default function OrderButtonField({
   totalPrice,
+  onClickOrder,
 }: OrderButtonFieldProps) {
   return (
     <button
       type="button"
+      onClick={onClickOrder}
     >
       합계:
       {' '}

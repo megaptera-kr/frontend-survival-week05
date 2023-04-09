@@ -10,8 +10,20 @@ export default function MenuItem({
   onAddCart,
 }: MenuItemProps) {
   return (
-    <ul style={{ listStyle: 'none', padding: 0 }}>
-      <li>
+    <ul style={{
+      listStyle: 'none',
+      padding: 0,
+    }}
+    >
+      <li
+        style={{
+          paddingRight: 20,
+          paddingLeft: 20,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
         {menuItem.name}
         (
         {(menuItem.price).toLocaleString('ko-kr')}
@@ -19,7 +31,9 @@ export default function MenuItem({
         <button
           type="button"
           name={menuItem.name}
-          style={{ marginLeft: 10 }}
+          style={{
+            marginLeft: 10,
+          }}
           onClick={() => onAddCart(menuItem)}
         >
           선택

@@ -1,13 +1,30 @@
 import OrderButtonField from './OrderButtonField';
 import Menu from '../types/Menu';
+import calculateTotalPrice from '../utils/calculateTotalPrice';
+import usePostReceipt from '../hooks/usePostReceipt';
 
 interface CartProps {
     cart: Menu[];
-    totalPrice: number;
+    setCart: any;
+    setReceipt: any;
     onDeleteCart: (index: number) => void;
 }
 
-export default function Cart({ cart, totalPrice, onDeleteCart }: CartProps) {
+export default function Cart({
+  cart, setCart, setReceipt, onDeleteCart,
+}: CartProps) {
+  const { createOrder } = usePostReceipt();
+
+  const totalPrice = calculateTotalPrice(cart);
+
+  const handleClickOrder = async () => {
+    if (cart.length > 0) {
+      const { receipt } = await createOrder({ menu: cart, totalPrice });
+      setReceipt(receipt);
+      setCart([]);
+    }
+  };
+
   return (
     <div style={{ marginBottom: 50 }}>
       {
@@ -53,6 +70,7 @@ export default function Cart({ cart, totalPrice, onDeleteCart }: CartProps) {
       }
       <OrderButtonField
         totalPrice={totalPrice}
+        onClickOrder={handleClickOrder}
       />
     </div>
   );
