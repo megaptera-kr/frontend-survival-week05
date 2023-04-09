@@ -17,7 +17,7 @@ describe('ReceiptPrinter', () => {
 
       screen.getByText(/주문번호/);
       screen.getByText(/주문목록/);
-      screen.getByText(/소시지카레/);
+      screen.getByText(/짜장면/);
     });
   });
 

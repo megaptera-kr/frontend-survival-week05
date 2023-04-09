@@ -25,7 +25,7 @@ describe('Cart', () => {
   it('renders order food list', () => {
     render(<Cart setReceipt={setReceipt} />);
 
+    screen.getByText(/짜장면/);
     screen.getByText(/짬뽕/);
-    screen.getByText(/컵라면/);
   });
 });

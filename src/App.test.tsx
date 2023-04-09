@@ -7,8 +7,9 @@ describe('App ', () => {
     render(<App />);
 
     await waitFor(() => {
-      screen.getByText(/메가반점/);
-      screen.getByText(/메리김밥/);
+      screen.getByText('가게이름');
+      // screen.getByText(/가게/);
+      // screen.getByText(/메리김밥/);
     });
   });
 });

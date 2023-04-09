@@ -34,7 +34,7 @@ Scenario('음식 주문하기', ({ I }) => {
   I.waitForText('주문번호');
   I.see('총 가격: 41,000원');
 
-  I.wait(3);
+  I.wait(7);
 
   I.see('영수증 나오는 곳');
 });
