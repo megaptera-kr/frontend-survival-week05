@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import { useInterval, useLocalStorage } from 'usehooks-ts';
 import Cart from './components/Cart';
 import SearchBar from './components/SearchBar';
 import FilterableRestaurantsTable from './components/FilterableRestaurantsTable';
@@ -10,8 +11,8 @@ import Receipt from './types/Receipt';
 export default function App() {
   const [filterText, setFilterText] = useState('');
   const [filterCategory, setFilterCategory] = useState('전체');
-  const [cart, setCart] = useState<Menu[]>([]);
-  const [receipt, setReceipt] = useState<Receipt | undefined>(undefined);
+  const [cart, setCart] = useLocalStorage<Menu[]>('cart', []);
+  const [receipt, setReceipt] = useLocalStorage<Receipt | undefined>('receipt', undefined);
 
   const filteredRestaurants = filterRestaurant({ filterText, filterCategory });
 
@@ -35,6 +36,10 @@ export default function App() {
     const menus = cart.filter((_, i) => i !== index);
     setCart(menus);
   };
+
+  useInterval(() => {
+    setReceipt(undefined);
+  }, receipt ? 5000 : null);
 
   return (
     <>
