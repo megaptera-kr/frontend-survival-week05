@@ -1,11 +1,16 @@
 import { ChangeEvent, useState } from 'react';
 import SearchBar from './components/SearchBar';
 import FilterableRestaurantsTable from './components/FilterableRestaurantsTable';
+import Cart from './components/Cart';
 import filterRestaurant from './utils/filterRestaurant';
+import calculateTotalPrice from './utils/calculateTotalPrice';
+import Menu from './types/Menu';
 
 export default function App() {
   const [filterText, setFilterText] = useState('');
   const [filterCategory, setFilterCategory] = useState('전체');
+  const [cart, setCart] = useState<Menu[]>([]);
+  const [receipt, setReceipt] = useState();
 
   const filteredRestaurants = filterRestaurant({ filterText, filterCategory });
 
@@ -18,17 +23,29 @@ export default function App() {
     setFilterCategory(name);
   };
 
+  const handleAddCart = (menuItem: Menu) => {
+    setCart([
+      ...cart,
+      menuItem,
+    ]);
+  };
+
+  const handleDeleteCart = (index: number) => {
+    const menus = cart.filter((_, i) => i !== index);
+    setCart(menus);
+  };
+
+  const totalPrice = calculateTotalPrice(cart);
+
   return (
     <>
       <h1>푸드코트 키오스크</h1>
-      <h2>점심 바구니</h2>
-      <div style={{ marginBottom: 50 }}>
-        <button
-          type="button"
-        >
-          합계: 0원 주문
-        </button>
-      </div>
+      <h2>🛒 점심 바구니</h2>
+      <Cart
+        cart={cart}
+        totalPrice={totalPrice}
+        onDeleteCart={handleDeleteCart}
+      />
       <SearchBar
         filterText={filterText}
         onChange={handleChangeText}
@@ -36,9 +53,10 @@ export default function App() {
       />
       <FilterableRestaurantsTable
         restaurants={filteredRestaurants}
+        onAddCart={handleAddCart}
       />
       <div style={{ marginTop: 30 }}>
-        <div>[영수증 나오는 곳]</div>
+        <div>[🧾 영수증 나오는 곳]</div>
         <div style={{
           width: 400,
           padding: 30,
