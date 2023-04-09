@@ -1,7 +1,9 @@
 import Menu from './Menu';
 
-export default interface Receipt {
+interface Receipt {
     id?: string;
     menu?: Menu[];
     totalPrice?: number;
 }
+
+export default Receipt;
