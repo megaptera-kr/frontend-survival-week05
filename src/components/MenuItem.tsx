@@ -12,6 +12,13 @@ export default function MenuItem({ menuItem }: MenuItemProps) {
         (
         {(menuItem.price).toLocaleString('ko-kr')}
         원)
+        <button
+          type="button"
+          name={menuItem.name}
+          style={{ marginLeft: 10 }}
+        >
+          선택
+        </button>
       </li>
     </ul>
   );
