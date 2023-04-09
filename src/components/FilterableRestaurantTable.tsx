@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Restaurant from '../types/Restaurant';
-import extractCategories from '../utils/extractCategorties';
+import extractCategories from '../utils/extractCategories';
 import filterRestaurants from '../utils/filterRestaurants';
 import SearchBar from './SearchBar';
 import RestaurantTable from './RestaurantTable';

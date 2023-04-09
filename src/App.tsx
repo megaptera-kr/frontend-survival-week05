@@ -1,5 +1,5 @@
 import {
-  useBoolean, useFetch, useInterval, useLocalStorage,
+  useBoolean, useInterval, useLocalStorage,
 } from 'usehooks-ts';
 import { useEffect } from 'react';
 import Receipt from './types/Receipt';
