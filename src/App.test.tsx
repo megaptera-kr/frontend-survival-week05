@@ -1,13 +1,14 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 
 import App from './App';
 
 describe('App ', () => {
-  it('renders without crash', async () => {
+  it('renders restaurants', async () => {
     render(<App />);
 
     await waitFor(() => {
-      screen.getAllByText(/짜장면/);
+      screen.getByText(/메가반점/);
+      screen.getByText(/메리김밥/);
     });
   });
 });

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import SearchBar from './SearchBar';
-import RestaurantTable from './RestaurantTable';
-
 import Restaurant from '../types/Restaurant';
 
-import selectCategories from '../utils/selectCategories';
+import extractCategories from '../utils/extractCategories';
 import filterRestaurants from '../utils/filterRestaurants';
+
+import SearchBar from './SearchBar';
+import RestaurantTable from './RestaurantTable';
 
 type FilterableRestaurantTableProps = {
   restaurants: Restaurant[];
@@ -18,7 +18,7 @@ export default function FilterableRestaurantTable({
   const [filterText, setFilterText] = useState<string>('');
   const [filterCategory, setFilterCategory] = useState<string>('전체');
 
-  const categories = selectCategories(restaurants);
+  const categories = extractCategories(restaurants);
 
   const filteredRestaurants = filterRestaurants(restaurants, {
     filterText,

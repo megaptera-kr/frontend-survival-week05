@@ -2,25 +2,31 @@ import { render, screen } from '@testing-library/react';
 
 import Cart from './Cart';
 
-const context = describe;
+import fixtures from '../../fixtures';
 
-describe('Cart Component', () => {
-  // given
+const setFoods = jest.fn();
+
+jest.mock('usehooks-ts', () => ({
+  useLocalStorage: () => [fixtures.foods, setFoods],
+}));
+
+describe('Cart', () => {
   const setReceipt = jest.fn();
 
-  const renderCart = () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('renders title', () => {
     render(<Cart setReceipt={setReceipt} />);
-  };
 
-  context('button 태그', () => {
-    it('사용해보자', () => {
-      // given
-      renderCart();
-      const $btn = screen.getByRole('button', { name: /합계/ });
+    screen.getByText(/주문 바구니/);
+  });
 
-      expect($btn).toBeInTheDocument();
-      // fireEvent.click($btn);
-      // expect(setReceipt).toBeCalled();
-    });
+  it('renders order food list', () => {
+    render(<Cart setReceipt={setReceipt} />);
+
+    screen.getByText(/짜장면/);
+    screen.getByText(/짬뽕/);
   });
 });

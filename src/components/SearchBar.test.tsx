@@ -1,31 +1,37 @@
-/* eslint-disable comma-dangle */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import SearchBar from './SearchBar';
 
-const context = describe;
-
 describe('SearchBar', () => {
-  // given
-  const categories = ['한식'];
-  const filterText = '짜';
+  const categories = ['한식', '중식', '일식'];
+
   const setFilterText = jest.fn();
   const setFilterCategory = jest.fn();
 
-  context('사용자가 텍스트를 입력했을때', () => {
-    it('filterText가 "짜" 라면?', () => {
-      render(
-        <SearchBar
-          categories={categories}
-          filterText={filterText}
-          setFilterText={setFilterText}
-          setFilterCategory={setFilterCategory}
-        />
-      );
-      expect(screen.getByText(/한식/)).toBeInTheDocument();
-      fireEvent.change(screen.getByPlaceholderText('식당 이름'));
-      fireEvent.click(screen.getByText('한식'));
-      expect(setFilterCategory).toBeCalled();
+  function renderSearchBar() {
+    render(
+      <SearchBar
+        categories={categories}
+        filterText=""
+        setFilterText={setFilterText}
+        setFilterCategory={setFilterCategory}
+      />
+    );
+  }
+
+  it('renders search label text', () => {
+    renderSearchBar();
+
+    screen.getByLabelText(/검색/);
+  });
+
+  it('renders all categories', () => {
+    renderSearchBar();
+
+    screen.getByText(/전체/);
+
+    categories.forEach((category) => {
+      screen.getByText(category);
     });
   });
 });

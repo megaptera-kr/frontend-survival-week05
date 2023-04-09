@@ -1,19 +1,28 @@
-/* eslint-disable comma-dangle */
 import { render, screen } from '@testing-library/react';
-import fixtures from '../../fixtures';
 
 import RestaurantRow from './RestaurantRow';
 
+import fixtures from '../../fixtures';
+
 describe('RestaurantRow', () => {
-  const tableBody = document.createElement('tbody');
-  const { container } = render(
-    <RestaurantRow restaurant={fixtures.restaurants[0]} />,
-    {
-      container: document.body.appendChild(tableBody),
-    }
-  );
-  it('renders without crash', () => {
-    expect(container).toBeTruthy();
-    expect(screen.getByText(fixtures.restaurants[0].name)).toBeInTheDocument();
+  const restaurant = {
+    id: 'RESTAURANT_01',
+    category: '중식',
+    name: '메가반점',
+    menu: [...fixtures.foods],
+  };
+
+  it('renders restaurant information', () => {
+    render(
+      <table>
+        <tbody>
+          <RestaurantRow restaurant={restaurant} />
+        </tbody>
+      </table>
+    );
+
+    screen.getByText(/메가반점/);
+    screen.getByText(/중식/);
+    screen.getByText(/짜장면/);
   });
 });

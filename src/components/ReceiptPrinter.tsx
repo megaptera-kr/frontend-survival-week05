@@ -1,4 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-one-expression-per-line */
+
+import _ from 'lodash';
 
 import MenuItem from './MenuItem';
 
@@ -9,7 +12,7 @@ type ReceiptPrinterProps = {
 };
 
 export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
-  if (!receipt.id) {
+  if (_.isEmpty(receipt)) {
     return <p>[영수증 나오는 곳]</p>;
   }
 
@@ -38,6 +41,7 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
         >
           {menu.map((food, index) => {
             const key = `${food.id}-${index}`;
+
             return <MenuItem key={key} food={food} />;
           })}
         </ul>

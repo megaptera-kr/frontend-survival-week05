@@ -1,22 +1,32 @@
 import { render, screen } from '@testing-library/react';
 
+import Receipt from '../types/Receipt';
+
 import ReceiptPrinter from './ReceiptPrinter';
 
+import fixtures from '../../fixtures';
+
+const context = describe;
+
 describe('ReceiptPrinter', () => {
-  // given
-  const receipt = {
-    id: new Date().getTime().toString(),
-    menu: [
-      { id: '10', name: '가라아게카레', price: 14000 },
-      { id: '13', name: '닭가슴살카레', price: 13000 },
-    ],
-    totalPrice: 27000,
-  };
+  context('with receipt', () => {
+    const { receipt } = fixtures;
 
-  it('renders without crash', () => {
-    render(<ReceiptPrinter receipt={receipt} />);
+    it('renders receipt', () => {
+      render(<ReceiptPrinter receipt={receipt} />);
 
-    expect(screen.getByText(receipt.id)).toBeInTheDocument();
-    expect(screen.getByText(/가라아게카레/)).toBeInTheDocument();
+      screen.getByText(/주문번호/);
+      screen.getByText(/주문목록/);
+      screen.getByText(/짜장면/);
+    });
+  });
+
+  context('without receipt', () => {
+    const receipt = {} as Receipt;
+    it('renders message', () => {
+      render(<ReceiptPrinter receipt={receipt} />);
+
+      screen.getByText(/영수증 나오는 곳/);
+    });
   });
 });

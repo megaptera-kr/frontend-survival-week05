@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable operator-linebreak */
 /* eslint-disable implicit-arrow-linebreak */
 

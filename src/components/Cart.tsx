@@ -1,12 +1,12 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import { useLocalStorage } from 'usehooks-ts';
 
 import useCreateOrder from '../hooks/useCreateOrder';
 
-import MenuItem from './MenuItem';
-
 import Receipt from '../types/Receipt';
 import Food from '../types/Food';
+
+import CartItem from './CartItem';
+import OrderButton from './OrderButton';
 
 type CartProps = {
   setReceipt: (receipt: Receipt) => void;
@@ -16,8 +16,6 @@ export default function Cart({ setReceipt }: CartProps) {
   const [selectedFoods, setFoods] = useLocalStorage<Food[]>('cart', []);
 
   const { createOrder } = useCreateOrder();
-
-  const totalPrice = selectedFoods.reduce((acc, cur) => acc + cur.price, 0);
 
   const handleClickCancel = (index: number) => {
     const foods = selectedFoods.filter((_, i) => i !== index);
@@ -29,8 +27,7 @@ export default function Cart({ setReceipt }: CartProps) {
       return;
     }
 
-    const receipt = await createOrder(selectedFoods, totalPrice);
-
+    const receipt = await createOrder(selectedFoods);
     setReceipt(receipt);
 
     setFoods([]);
@@ -38,29 +35,22 @@ export default function Cart({ setReceipt }: CartProps) {
 
   return (
     <div style={{ marginBottom: '3rem' }}>
-      <h2>점심 바구니</h2>
+      <h2>주문 바구니</h2>
       <ul style={{ width: '20%' }}>
         {selectedFoods.map((food, index) => {
-          const { id } = food;
-
-          const key = `${id}-${index}`;
+          const key = `${food.id}-${index}`;
 
           return (
-            <MenuItem key={key} food={food}>
-              <button
-                style={{ marginLeft: '.5rem' }}
-                type="button"
-                onClick={() => handleClickCancel(index)}
-              >
-                취소
-              </button>
-            </MenuItem>
+            <CartItem
+              key={key}
+              index={index}
+              food={food}
+              onClickCancel={handleClickCancel}
+            />
           );
         })}
       </ul>
-      <button type="button" onClick={handleClickOrder}>
-        합계: {totalPrice.toLocaleString()}원 주문
-      </button>
+      <OrderButton foods={selectedFoods} onClick={handleClickOrder} />
     </div>
   );
 }

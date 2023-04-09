@@ -1,4 +1,5 @@
 import TextField from './TextField';
+import Categories from './Categories';
 
 type SearchBarProps = {
   categories: string[];
@@ -18,29 +19,13 @@ export default function SearchBar({
       <TextField
         label="검색"
         placeholder="식당 이름"
-        filterText={filterText}
-        setFilterText={setFilterText}
+        text={filterText}
+        setText={setFilterText}
       />
-      <ul
-        style={{
-          display: 'flex',
-          padding: 0,
-          listStyle: 'none',
-        }}
-      >
-        {['전체', ...categories].map((category: string) => (
-          <li
-            key={category}
-            style={{
-              marginRight: '1rem',
-            }}
-          >
-            <button type="button" onClick={() => setFilterCategory(category)}>
-              {category}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Categories
+        categories={categories}
+        setFilterCategory={setFilterCategory}
+      />
     </div>
   );
 }

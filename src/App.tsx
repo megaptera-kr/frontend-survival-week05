@@ -1,15 +1,14 @@
-/* eslint-disable comma-dangle */
 import { useEffect } from 'react';
 
 import { useBoolean, useInterval, useLocalStorage } from 'usehooks-ts';
+
+import Receipt from './types/Receipt';
 
 import Cart from './components/Cart';
 import FilterableRestaurantTable from './components/FilterableRestaurantTable';
 import ReceiptPrinter from './components/ReceiptPrinter';
 
 import useFetchRestaurants from './hooks/useFetchRestaurants';
-
-import Receipt from './types/Receipt';
 
 const emptyReceipt = {} as Receipt;
 
