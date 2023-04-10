@@ -16,6 +16,7 @@ export default function TextField({ filterText, onChange }: TextFieldProps) {
       </label>
       <input
         id="restaurantName"
+        name="검색"
         placeholder="식당 이름"
         value={filterText}
         onChange={onChange}

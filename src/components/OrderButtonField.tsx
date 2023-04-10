@@ -10,6 +10,7 @@ export default function OrderButtonField({
   return (
     <button
       type="button"
+      name="orderReceipt"
       onClick={onClickOrder}
     >
       합계:

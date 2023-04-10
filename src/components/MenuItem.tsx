@@ -30,7 +30,7 @@ export default function MenuItem({
         원)
         <button
           type="button"
-          name={menuItem.name}
+          name={`#${menuItem.name}`}
           style={{
             marginLeft: 10,
           }}
