@@ -7,14 +7,15 @@ import ReceiptPrinter from './components/ReceiptPrinter';
 import filterRestaurant from './utils/filterRestaurant';
 import Menu from './types/Menu';
 import Receipt from './types/Receipt';
+import useFetchRestaurants from './hooks/useFetchRestaurants';
 
 export default function App() {
   const [filterText, setFilterText] = useState('');
   const [filterCategory, setFilterCategory] = useState('전체');
   const [cart, setCart] = useLocalStorage<Menu[]>('cart', []);
   const [receipt, setReceipt] = useLocalStorage<Receipt | undefined>('receipt', undefined);
-
-  const filteredRestaurants = filterRestaurant({ filterText, filterCategory });
+  const restaurants = useFetchRestaurants();
+  const filteredRestaurants = filterRestaurant({ restaurants, filterText, filterCategory });
 
   const handleChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

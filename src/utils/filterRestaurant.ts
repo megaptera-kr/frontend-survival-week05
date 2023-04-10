@@ -1,11 +1,10 @@
-import useFetchRestaurants from '../hooks/useFetchRestaurants';
+import Restaurants from '../types/Restaurants';
 
-export default function filterRestaurant({ filterText, filterCategory }: {
+export default function filterRestaurant({ restaurants, filterText, filterCategory }: {
+  restaurants: Restaurants[];
   filterText: string;
   filterCategory: string;
 }) {
-  const restaurants = useFetchRestaurants();
-
   let filteredRestaurants = restaurants;
 
   const query = filterText.trim().toLowerCase();
