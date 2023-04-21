@@ -1,6 +1,5 @@
 import Restaurants from '../types/Restaurants';
 import RestaurantsTable from './RestaurantsTable';
-import RestaurantsRow from './RestaurantsRow';
 import Menu from '../types/Menu';
 
 interface FilterableRestaurantsTableProps {
@@ -13,12 +12,9 @@ export default function FilterableRestaurantsTable({
   onAddCart,
 }: FilterableRestaurantsTableProps) {
   return (
-    <table>
-      <RestaurantsTable />
-      <RestaurantsRow
-        restaurants={restaurants}
-        onAddCart={onAddCart}
-      />
-    </table>
+    <RestaurantsTable
+      restaurants={restaurants}
+      onAddCart={onAddCart}
+    />
   );
 }

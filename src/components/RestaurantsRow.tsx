@@ -3,31 +3,27 @@ import MenuItem from './MenuItem';
 import Menu from '../types/Menu';
 
 interface RestaurantsRowProps {
-  restaurants: Restaurants[];
+  restaurant: Restaurants;
   onAddCart: (menuItem: Menu) => void;
 }
 
 export default function RestaurantsRow({
-  restaurants,
+  restaurant,
   onAddCart,
 }: RestaurantsRowProps) {
   return (
-    <tbody style={{ textAlign: 'center' }}>
-      {restaurants.map((restaurant) => (
-        <tr key={restaurant.id}>
-          <td>{restaurant.name}</td>
-          <td>{restaurant.category}</td>
-          <td>
-            {restaurant.menu.map((menuItem) => (
-              <MenuItem
-                key={menuItem.id}
-                menuItem={menuItem}
-                onAddCart={onAddCart}
-              />
-            ))}
-          </td>
-        </tr>
-      ))}
-    </tbody>
+    <tr key={restaurant.id}>
+      <td>{restaurant.name}</td>
+      <td>{restaurant.category}</td>
+      <td>
+        {restaurant.menu.map((menuItem) => (
+          <MenuItem
+            key={menuItem.id}
+            menuItem={menuItem}
+            onAddCart={onAddCart}
+          />
+        ))}
+      </td>
+    </tr>
   );
 }
