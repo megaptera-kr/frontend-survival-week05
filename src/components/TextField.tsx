@@ -1,24 +1,27 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useRef } from 'react';
 
 interface TextFieldProps {
-    filterText: string;
+    label: string;
+    text: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function TextField({ filterText, onChange }: TextFieldProps) {
+export default function TextField({ label, text, onChange }: TextFieldProps) {
+  const id = useRef(`input-${Math.random()}`);
+
   return (
     <>
       <label
-        htmlFor="restaurantName"
+        htmlFor={id.current}
         style={{ marginRight: 10 }}
       >
-        검색
+        {label}
       </label>
       <input
-        id="restaurantName"
-        name="검색"
+        id={id.current}
+        type="text"
         placeholder="식당 이름"
-        value={filterText}
+        value={text}
         onChange={onChange}
       />
     </>

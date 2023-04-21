@@ -12,7 +12,8 @@ export default function SearchBar({ filterText, onChange, onClick }: SearchBarPr
   return (
     <>
       <TextField
-        filterText={filterText}
+        label="검색"
+        text={filterText}
         onChange={onChange}
       />
       <CategoryButtonField
