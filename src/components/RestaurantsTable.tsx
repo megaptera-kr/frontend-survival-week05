@@ -9,7 +9,7 @@ interface RestaurantsTableProps {
 
 export default function RestaurantsTable({ restaurants, onAddCart }: RestaurantsTableProps) {
   return (
-    <>
+    <table>
       <thead>
         <tr>
           <th style={{ width: 110 }}>식당 이름</th>
@@ -26,6 +26,6 @@ export default function RestaurantsTable({ restaurants, onAddCart }: Restaurants
           />
         ))}
       </tbody>
-    </>
+    </table>
   );
 }
