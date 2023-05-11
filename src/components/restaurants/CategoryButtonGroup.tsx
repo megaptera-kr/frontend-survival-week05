@@ -1,6 +1,6 @@
-import categories from '../utils/categories';
+import categories from '../../utils/categories';
 import CategoryButton from './CategoryButton';
-import useFetchRestaurants from '../hooks/useFetchRestaurants';
+import useFetchRestaurants from '../../hooks/useFetchRestaurants';
 
 type Props = {
   setSelectCategory: (name: string) => void;

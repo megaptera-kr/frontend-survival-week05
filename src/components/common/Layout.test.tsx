@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import Layout from './Layout';
-import CategoryButtonGroup from './CategoryButtonGroup';
+import CategoryButtonGroup from '../restaurants/CategoryButtonGroup';
 
 const context = describe;
 describe('Layout', () => {
@@ -12,7 +12,7 @@ describe('Layout', () => {
   });
 
   context('div 테그를 자식 노드로 전달하였을 때', () => {
-    it('렌더링 되었는가?', () => {
+    it('테스트 노드 글씨가 렌더링 된다', () => {
       render(
         <Layout
           title={title}
@@ -27,7 +27,7 @@ describe('Layout', () => {
   });
 
   context('CategoryButtonGroup 컴포넌트를 자식 노드로 전달하였을 때', () => {
-    it('렌더링 되었는가?', async () => {
+    it('전체, 한식, 중식, 일식 글씨가 렌더링 된다', async () => {
       render(
         <Layout
           title={title}

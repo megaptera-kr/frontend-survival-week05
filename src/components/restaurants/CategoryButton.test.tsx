@@ -17,14 +17,14 @@ describe('CategoryButton', () => {
       setSelectCategory={setSelectCategory}
     />);
   }
-  it('랜더링 되는가?', () => {
+  it('랜더링 된다', () => {
     renderCategoryButton();
 
     screen.getByText(name);
   });
 
   context('사용자가 버튼을 클릭하면', () => {
-    it('setSelectCategory가 호출되는가?', () => {
+    it('setSelectCategory가 호출된다', () => {
       renderCategoryButton();
 
       fireEvent.click(screen.getByText(name));

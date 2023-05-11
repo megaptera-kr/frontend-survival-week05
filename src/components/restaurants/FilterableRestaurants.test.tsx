@@ -15,21 +15,21 @@ describe('FilterableRestaurants', () => {
     );
   }
   context('서버에서 데이터 응답 전', () => {
-    it('검색할 수 있는 인풋이 렌더링 되는가?', () => {
+    it('검색할 수 있는 인풋이 렌더링 된다', () => {
       renderFilterableRestaurants();
 
       const input = screen.getByPlaceholderText('식당 이름');
 
       expect(input).toBeInTheDocument();
     });
-    it('필터링 가능한 전체 버튼만 렌더링 되는가?', () => {
+    it('필터링 가능한 전체 버튼만 렌더링 된다', () => {
       renderFilterableRestaurants();
 
       const button = screen.getByRole('button', { name: '전체' });
 
       expect(button).toBeInTheDocument();
     });
-    it('"식당이 존재하지 않습니다."내용이 있는 테이블이 렌더링 되는가?', () => {
+    it('"식당이 존재하지 않습니다."내용이 있는 테이블이 렌더링 된다', () => {
       renderFilterableRestaurants();
 
       const table = screen.getByRole('table');
@@ -41,7 +41,7 @@ describe('FilterableRestaurants', () => {
   });
 
   context('서버에서 데이터가 응답 후', () => {
-    it('식당을 필터링 할 수 있는 버튼들이 모두 렌더링 되는가?', async () => {
+    it('식당을 필터링 할 수 있는 버튼들이 모두 렌더링 된다', async () => {
       renderFilterableRestaurants();
 
       await waitFor(() => {
@@ -54,7 +54,7 @@ describe('FilterableRestaurants', () => {
         expect(japaneseFoodButton).toBeInTheDocument();
       });
     });
-    it('식당들이 모두 렌더링 되는가?', async () => {
+    it('식당들이 모두 렌더링 된다', async () => {
       renderFilterableRestaurants();
 
       await waitFor(() => {
@@ -67,7 +67,7 @@ describe('FilterableRestaurants', () => {
         expect(restaurant3).toBeInTheDocument();
       });
     });
-    it('검색어를 "메가"라고 입력하면 "메가반점"만 렌더링 되는가? ', async () => {
+    it('검색어를 "메가"라고 입력하면 "메가반점"만 렌더링 된다 ', async () => {
       renderFilterableRestaurants();
 
       fireEvent.change(screen.getByLabelText('검색'), {
@@ -85,7 +85,7 @@ describe('FilterableRestaurants', () => {
         expect(restaurant3).toBeNull();
       });
     });
-    it('"한식"버튼을 클릭하면 "메리김밥"만 렌더링 되는가? ', async () => {
+    it('"한식"버튼을 클릭하면 "메리김밥"만 렌더링 된다 ', async () => {
       renderFilterableRestaurants();
 
       const categorySelect = await screen.findByRole('button', { name: '한식' });

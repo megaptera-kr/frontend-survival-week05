@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import RestaurantTable from './RestaurantTable';
-import filterRestaurants from '../utils/filterRestaurants';
-import useFetchRestaurants from '../hooks/useFetchRestaurants';
+import filterRestaurants from '../../utils/filterRestaurants';
+import useFetchRestaurants from '../../hooks/useFetchRestaurants';
 
 export default function FilterableRestaurants() {
   const [filterText, setFilterText] = useState<string>('');

@@ -1,4 +1,4 @@
-import { Restaurants } from '../types';
+import { Restaurants } from '../../types';
 import RestaurantRow from './RestaurantRow';
 
 const commonStyle = 'border-2 border-green-500';

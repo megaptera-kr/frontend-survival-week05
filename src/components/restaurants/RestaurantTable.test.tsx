@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import fixtures from '../../fixtures';
-import { Restaurants } from '../types';
+import fixtures from '../../../fixtures';
+import { Restaurants } from '../../types';
 import RestaurantTable from './RestaurantTable';
 
 const context = describe;

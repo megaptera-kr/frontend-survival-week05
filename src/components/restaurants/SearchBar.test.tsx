@@ -23,7 +23,7 @@ describe('SearchBar', () => {
   }
 
   context('서버에서 데이터가 불러오기 전', () => {
-    it('검색할 수 있는 인풋과 전체버튼만 렌더링 되는가?', () => {
+    it('검색할 수 있는 인풋과 전체버튼만 렌더링 된다', () => {
       renderSearchBar();
 
       screen.getByPlaceholderText('식당 이름');
@@ -32,7 +32,7 @@ describe('SearchBar', () => {
   });
 
   context('서버에서 데이터가 불러오기 전', () => {
-    it('검색할 수 있는 인풋과 식당을 필터링 할 수 있는 버튼들이 렌더링 되는가?', async () => {
+    it('검색할 수 있는 인풋과 식당을 필터링 할 수 있는 버튼들이 렌더링 된다', async () => {
       renderSearchBar();
 
       screen.getByPlaceholderText('식당 이름');

@@ -1,14 +1,12 @@
 import { useLocalStorage } from 'usehooks-ts';
-import { Menu, Receipt, ReceiptData } from '../types';
-import calculateTotalPrice from '../utils/calculateTotalPrice';
+import { Menu, Receipt, ReceiptData } from '../../types';
+import calculateTotalPrice from '../../utils/calculateTotalPrice';
+import orderInitialValue from '../../utils/orderInitialValue';
+import Cart from './Cart';
+import OrderButton from './OrderButton';
+import ResultReceipt from './ResultReceipt';
 
-const orderInitialValue = {
-  id: '',
-  menu: [],
-  totalPrice: 0,
-};
-
-export default function OrderButton() {
+export default function LunchCart() {
   const [, setReceipt] = useLocalStorage<Receipt>('receipt', orderInitialValue);
   const [menu, setCart] = useLocalStorage<Menu[]>('cart', []);
   const totalPrice = calculateTotalPrice(menu);
@@ -32,17 +30,15 @@ export default function OrderButton() {
       console.error(error);
     }
   };
-
   return (
-    <button
-      className="bg-green-400 rounded py-2 mt-2"
-      type="button"
-      onClick={handleOrder}
-    >
-      합계:
-      {' '}
-      {totalPrice.toLocaleString()}
-      원 주문
-    </button>
+    <div className="w-1/2 flex flex-col item-center">
+      <h2 className="text-center font-bold text-2xl">점심 바구니</h2>
+      <Cart />
+      <OrderButton
+        totalPrice={totalPrice}
+        handleOrder={handleOrder}
+      />
+      <ResultReceipt />
+    </div>
   );
 }
