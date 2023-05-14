@@ -12,7 +12,7 @@ export default function MenuItem({ food, children }: MenuItemProps) {
     <li>
       <span>
         {name}
-        {`(${price}원)`}
+        {`(${price.toLocaleString()}원)`}
       </span>
       {children}
     </li>
