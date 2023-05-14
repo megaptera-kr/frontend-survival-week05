@@ -1,7 +1,7 @@
 {
   "name": "express-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "5주차 과제",
   "main": "index.js",
   "scripts": {
     "start": "ts-node app.ts",
