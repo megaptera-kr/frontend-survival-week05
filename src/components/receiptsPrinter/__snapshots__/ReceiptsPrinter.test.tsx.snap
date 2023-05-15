@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecieptsPrinter render correctly 1`] = `
+<article>
+  <h2>
+    영수증
+  </h2>
+  <table
+    style={
+      {
+        "backgroundColor": "black",
+        "border": "1px solid black",
+      }
+    }
+  >
+    <caption>
+      영수증
+    </caption>
+    <thead
+      style={
+        {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <tr>
+        <th
+          scope="col"
+        >
+          주문번호
+        </th>
+        <th
+          scope="col"
+        >
+          주문목록
+        </th>
+        <th
+          scope="col"
+        >
+          총 가격
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      style={
+        {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <tr>
+        <td>
+          RECEIPT_ID
+        </td>
+        <td>
+          <ul
+            style={
+              {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "4px",
+                "listStyle": "none",
+                "padding": "0",
+              }
+            }
+          >
+            <li>
+              <div
+                style={
+                  {
+                    "columnGap": "4px",
+                    "display": "flex",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <div
+                  style={
+                    {
+                      "display": "flex",
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <span>
+                    이름: 짜장면
+                  </span>
+                  <span>
+                    가격: 8,000
+                  </span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div
+                style={
+                  {
+                    "columnGap": "4px",
+                    "display": "flex",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <div
+                  style={
+                    {
+                      "display": "flex",
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <span>
+                    이름: 짬뽕
+                  </span>
+                  <span>
+                    가격: 5,000
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </td>
+        <td>
+          총 가격: 13,000원
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+`;

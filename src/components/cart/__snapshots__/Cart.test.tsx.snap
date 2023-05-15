@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart render correctly 1`] = `
+<DocumentFragment>
+  <article>
+    <h2>
+      장바구니
+    </h2>
+    <div>
+      <button
+        type="button"
+      >
+        비우기
+      </button>
+      <button
+        aria-label="주문하기"
+        type="button"
+      >
+        합계: 13000원 주문
+      </button>
+    </div>
+    <table
+      style="border: 1px solid black; background-color: black;"
+    >
+      <caption>
+        점심 바구니
+      </caption>
+      <thead
+        style="background-color: white;"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            음식 명
+          </th>
+          <th
+            scope="col"
+          >
+            음식 가격
+          </th>
+          <th
+            scope="col"
+          >
+            제거하기
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        style="background-color: white;"
+      >
+        <tr>
+          <td>
+            짜장면
+          </td>
+          <td>
+            8000
+          </td>
+          <td>
+            <button
+              type="button"
+            >
+              짜장면제거
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            짬뽕
+          </td>
+          <td>
+            5000
+          </td>
+          <td>
+            <button
+              type="button"
+            >
+              짬뽕제거
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</DocumentFragment>
+`;
