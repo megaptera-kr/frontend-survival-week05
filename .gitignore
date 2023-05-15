@@ -108,4 +108,5 @@ dist
 .idea/
 
 # CodeceptJS
-output/
+/output/
+/test_results/
