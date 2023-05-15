@@ -1,3 +1,5 @@
+import { useLocalStorage } from 'usehooks-ts';
+
 import MenuItem from './MenuItem';
 
 import Food from '../../types/Food';
@@ -7,6 +9,17 @@ type MenuProps = {
 }
 
 export default function Menu({ menu }: MenuProps) {
+  const [selectedFoods, setSelectFoods] = useLocalStorage<Food[]>('cart', []);
+
+  const handleClickSelect = (food: Food) => {
+    setSelectFoods(
+      [
+        ...selectedFoods,
+        food,
+      ],
+    );
+  };
+
   return (
     <ul>
       {menu.map((food, index) => {
@@ -20,6 +33,7 @@ export default function Menu({ menu }: MenuProps) {
             <button
               type="button"
               name={`#${food.name}`}
+              onClick={() => handleClickSelect(food)}
             >
               선택
             </button>
