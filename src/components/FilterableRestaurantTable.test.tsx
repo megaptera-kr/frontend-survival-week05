@@ -1,5 +1,5 @@
 import {
-  fireEvent, render, screen, waitFor,
+  render, screen,
 } from '@testing-library/react';
 
 import useFetchRestaurants from '../../hooks/__mocks__/useFetchRestaurants';

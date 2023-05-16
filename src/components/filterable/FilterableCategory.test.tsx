@@ -1,15 +1,12 @@
 import FilterableCategory from './FilterableCategory';
 
 import {
-  fireEvent,
-  render, screen, waitFor,
+  render, screen,
 } from '../../../hooks/tests/restaurantContextRender';
 
 import filterCategories from '../../utils/filterCategories';
 
 import useFetchRestaurants from '../../../hooks/__mocks__/useFetchRestaurants';
-
-const context = describe;
 
 describe('FilterableCategory ', () => {
   const filteredCategories: string[] = filterCategories(useFetchRestaurants());

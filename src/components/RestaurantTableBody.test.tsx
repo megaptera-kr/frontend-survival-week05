@@ -2,8 +2,6 @@ import { render, screen } from '../../hooks/tests/restaurantContextRender';
 
 import RestaurantsTable from './RestaurantsTable';
 
-const context = describe;
-
 describe('RestaurantsTableBody ', () => {
   const renderRestaurantsTableBody = () => render(
     <RestaurantsTable />,

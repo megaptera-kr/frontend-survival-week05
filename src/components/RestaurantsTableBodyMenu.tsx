@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import Button from './common/atoms/button/Button';
 

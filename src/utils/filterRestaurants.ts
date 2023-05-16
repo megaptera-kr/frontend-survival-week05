@@ -9,6 +9,7 @@ function trimQuery(text: string) {
   return text.trim().toLocaleLowerCase();
 }
 
+// eslint-disable-next-line max-len
 export default function filterRestaurants(restaurants: Restaurant[], { filterCategory, filterText }: FilterCondition): Restaurant[] {
   let filteredRestaurants = restaurants;
 

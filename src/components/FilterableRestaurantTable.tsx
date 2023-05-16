@@ -18,6 +18,8 @@ export default function FilterableRestaurantTable() {
   const restaurants = useFetchRestaurants();
 
   const filterCategories = filterableCategories(restaurants);
+
+  // eslint-disable-next-line max-len
   const filteredRestaurants: Restaurant[] = filterRestaurants(restaurants, { filterCategory, filterText });
 
   return (
