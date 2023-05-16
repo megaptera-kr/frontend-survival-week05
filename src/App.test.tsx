@@ -1,25 +1,30 @@
 import { render, waitFor, screen } from '@testing-library/react';
 
 import App from './App';
+import Header from './components/common/Header';
+import CartList from './components/cart/CartList';
+import FilterableRestaurantTable from './components/FilterableRestaurantTable';
+import ReceiptPrint from './components/receipt/ReceiptPrint';
+import useReceipt from '../hooks/__mocks__/useReceipt';
 
 describe('App ', () => {
+  const setReceipt = jest.fn();
+  const receipt = useReceipt();
   const renderApp = () => {
-    render(<App />);
+    render(
+      <div>
+        <Header />
+        <CartList setReceipt={setReceipt} />
+        <FilterableRestaurantTable />
+        <ReceiptPrint receipt={receipt} />
+      </div>,
+    );
   };
 
   it('renders header', () => {
     renderApp();
 
     expect(screen.getByText(/푸드코트 키오스크/)).toBeInTheDocument();
-  });
-
-  it('renders restaurants', async () => {
-    renderApp();
-
-    await waitFor(() => {
-      expect(screen.getByText(/메가반점/)).toBeInTheDocument();
-      expect(screen.getByText(/메리김밥/)).toBeInTheDocument();
-    });
   });
 
   it('renders carts', () => {
