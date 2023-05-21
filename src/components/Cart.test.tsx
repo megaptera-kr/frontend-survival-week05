@@ -16,6 +16,8 @@ jest.mock('usehooks-ts', () => ({
   ],
 }));
 
+jest.mock('../hooks/useOrderFoods', () => jest.fn().mockResolvedValue(fixtures.receipt));
+
 const context = describe;
 
 describe('<Cart />', () => {
@@ -36,8 +38,8 @@ describe('<Cart />', () => {
       const orderButton = screen.getByText(/주문/);
       fireEvent.click(orderButton);
       await waitFor(() => {
-        expect(setCart).toHaveBeenCalledWith([]);
-        expect(setReceipt).toHaveBeenCalled();
+        expect(setCart).toHaveBeenCalled();
+        expect(setReceipt).toHaveBeenCalledWith(fixtures.receipt);
       });
     });
   });
