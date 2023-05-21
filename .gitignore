@@ -109,3 +109,6 @@ dist
 
 # CodeceptJS
 output/
+
+# vscode setting
+.vscode/
