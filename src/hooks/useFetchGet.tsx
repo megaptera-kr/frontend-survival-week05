@@ -1,0 +1,17 @@
+import { useFetch } from 'usehooks-ts';
+import Restaurant from '../type/Restaurants';
+
+const url = 'http://localhost:3000/restaurants';
+
+type Restaurants = {
+  [restaurants: string]: Restaurant[];
+}
+export default function useFetchGet() {
+  const { data } = useFetch<Restaurants>(url);
+
+  if (!data) {
+    return [];
+  }
+
+  return data.restaurants;
+}
