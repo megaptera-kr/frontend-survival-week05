@@ -1,4 +1,4 @@
-import foods from './foods';
+import foods from './food';
 
 const receipt = {
   id: 'RECEIPT_ID',

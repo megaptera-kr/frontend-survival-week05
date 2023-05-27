@@ -1,11 +1,10 @@
 type CategoriesProps = {
   category : string,
-  filterCategory : string,
-  setFilterCategory : (value:string)=>void
+  setFilterCategory : (value:string)=>void,
 }
 
 export default function Categories(
-  { category, filterCategory, setFilterCategory }:CategoriesProps,
+  { category, setFilterCategory }:CategoriesProps,
 ) {
   function handleCategory() {
     setFilterCategory(category);
