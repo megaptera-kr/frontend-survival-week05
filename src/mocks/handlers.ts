@@ -8,6 +8,10 @@ const handlers = [
     const { restaurants } = fixtures;
     return res(ctx.status(200), ctx.json({ restaurants }));
   }),
+  rest.post(`${BASE_URL}/orders`, (req, res, ctx) => {
+    const { receipt } = fixtures
+    return res(ctx.status(200), ctx.json({ receipt }));
+  })
 ];
 
 export default handlers;
