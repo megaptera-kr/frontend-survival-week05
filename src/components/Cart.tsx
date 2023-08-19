@@ -5,6 +5,7 @@ import useCreateOrder from '../hooks/useCreateOrder';
 import calcPrice from '../utils/calcPrice';
 
 import type { Menu, ReceiptType } from '../types/restaurants';
+import CartList from './CartList';
 
 type CartProps = {
   setReceipt: (receipt: ReceiptType) => void;
@@ -37,10 +38,7 @@ function Cart({ setReceipt }: CartProps) {
         {cart.length > 0 && cart.map((item, idx) => {
           const key = `${item.id}-${idx}`;
           return (
-            <li key={key}>
-              <span>{`${item.name}(${item.price.toLocaleString()}원)`}</span>
-              <button type="button" onClick={() => handleClickCancel(idx)}>취소</button>
-            </li>
+            <CartList key={key} item={item} idx={idx} onClickCancel={handleClickCancel} />
           );
         })}
       </ul>

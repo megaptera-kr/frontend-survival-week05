@@ -1,5 +1,6 @@
 import { useLocalStorage } from 'usehooks-ts';
 import type { Menu, Restaurants } from '../types/restaurants';
+import MenuList from './MenuList';
 
 type RestaurantTableProps = {
   restaurants: Restaurants[]
@@ -30,17 +31,7 @@ function RestaurantTable({ restaurants }: RestaurantTableProps) {
               <td>
                 <ul style={{ listStyle: 'none' }}>
                   {restaurant.menu.map((food) => (
-                    <li key={food.id} style={{ marginBottom: '1rem' }}>
-                      <span>{`${food.name}(${food.price.toLocaleString()}원)`}</span>
-                      <button
-                        type="button"
-                        name={`#${food.name}`}
-                        style={{ float: 'right', marginLeft: '0.5rem' }}
-                        onClick={() => handleClickBtn(food)}
-                      >
-                        선택
-                      </button>
-                    </li>
+                    <MenuList key={food.id} food={food} onClickBtn={handleClickBtn} />
                   ))}
                 </ul>
               </td>

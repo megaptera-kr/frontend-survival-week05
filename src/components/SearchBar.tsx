@@ -1,6 +1,7 @@
-import { ChangeEvent, MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import type { Restaurants } from '../types/restaurants';
 import extractCategories from '../utils/extractCategories';
+import TextField from './TextField';
 
 type SearchBarProps = {
   restaurants: Restaurants[];
@@ -13,11 +14,6 @@ function SearchBar({
 }: SearchBarProps) {
   const foodCategories = extractCategories(restaurants);
 
-  const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
-    setQuery(value);
-  };
-
   const handleClickBtn = (e: MouseEvent<HTMLButtonElement>) => {
     const { textContent } = e.currentTarget;
     if (!textContent) throw Error('error');
@@ -26,8 +22,7 @@ function SearchBar({
 
   return (
     <div>
-      <label htmlFor="search-input" style={{ paddingRight: '1rem' }}>검색</label>
-      <input type="text" id="search-input" placeholder="식당 이름" onChange={handleChangeSearch} />
+      <TextField setQuery={setQuery} />
       <ul style={{ listStyle: 'none', display: 'flex', padding: 0 }}>
         {foodCategories.map((foodCategory) => (
           <li key={foodCategory} style={{ marginRight: '1rem' }}>
