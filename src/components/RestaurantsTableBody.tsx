@@ -12,8 +12,8 @@ export default function RestaurantsTableBody({
     <tbody>
       {restaurants.map((restaurant) => (
         <tr key={restaurant.id}>
-          <td>{restaurant.category}</td>
           <td>{restaurant.name}</td>
+          <td>{restaurant.category}</td>
           <td>
             <ul>
               {restaurant.menu.map((menu) => (
