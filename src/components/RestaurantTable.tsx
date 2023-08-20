@@ -7,12 +7,6 @@ type RestaurantTableProps = {
 };
 
 function RestaurantTable({ restaurants }: RestaurantTableProps) {
-  const [cart, setCart] = useLocalStorage<Menu[]>('cart', []);
-
-  const handleClickBtn = (food: Menu) => {
-    setCart([...cart, food]);
-  };
-
   return (
     <div>
       <table>
@@ -31,7 +25,7 @@ function RestaurantTable({ restaurants }: RestaurantTableProps) {
               <td>
                 <ul style={{ listStyle: 'none' }}>
                   {restaurant.menu.map((food) => (
-                    <MenuList key={food.id} food={food} onClickBtn={handleClickBtn} />
+                    <MenuList key={food.id} food={food} />
                   ))}
                 </ul>
               </td>
