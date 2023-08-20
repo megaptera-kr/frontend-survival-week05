@@ -18,7 +18,7 @@ export default function MenuList({ menuList }: MenuListProps) {
           menu={menu}
         >
           <AddBucketButton
-            name={menu.name}
+            name={`#${menu.name}`}
             title="선택"
             onClick={() => addMenu(menu)}
           />
