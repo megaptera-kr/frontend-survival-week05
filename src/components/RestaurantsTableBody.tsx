@@ -1,7 +1,5 @@
 import { Restaurant } from '../types/restaurants';
-import priceToLocal from '../utils/priceToLocal';
 import MenuList from './MenuList';
-import MenuListItem from './MenuListItem';
 
 type RestaurantsTableBodyProps = {
   restaurants: Restaurant[]
