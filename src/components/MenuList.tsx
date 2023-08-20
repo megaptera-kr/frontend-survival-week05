@@ -1,4 +1,3 @@
-import { useLocalStorage } from 'usehooks-ts';
 import { RestaurantMenuItem } from '../types/restaurants';
 import AddBucketButton from './AddBucketButton';
 import MenuListItem from './MenuListItem';

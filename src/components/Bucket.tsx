@@ -1,4 +1,5 @@
 import BucketList from './BucketList';
+import OrderButton from './OrderButton';
 
 export default function Bucket() {
   return (
@@ -9,6 +10,7 @@ export default function Bucket() {
     >
       <h2>점심 바구니</h2>
       <BucketList />
+      <OrderButton />
     </div>
   );
 }
