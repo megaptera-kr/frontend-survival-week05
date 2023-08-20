@@ -1,5 +1,7 @@
 import { Restaurant } from '../types/restaurants';
 import priceToLocal from '../utils/priceToLocal';
+import MenuList from './MenuList';
+import MenuListItem from './MenuListItem';
 
 type RestaurantsTableBodyProps = {
   restaurants: Restaurant[]
@@ -15,29 +17,7 @@ export default function RestaurantsTableBody({
           <td>{restaurant.name}</td>
           <td>{restaurant.category}</td>
           <td>
-            <ul>
-              {restaurant.menu.map((menu) => (
-                <li
-                  key={menu.id}
-                  style={{
-                    display: 'flex',
-                    paddingBlock: '0.5em',
-                  }}
-                >
-                  <span>
-                    {`${menu.name}(${priceToLocal(menu.price)}원)`}
-                  </span>
-                  <button
-                    type="button"
-                    style={{
-                      marginLeft: '0.5rem',
-                    }}
-                  >
-                    선택
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <MenuList menuList={restaurant.menu} />
           </td>
         </tr>
       ))}
