@@ -8,6 +8,8 @@ describe('SearchBar', () => {
       <SearchBar
         value=""
         setValue={jest.fn()}
+        categories={[]}
+        setCategory={jest.fn()}
       />
     ));
 
