@@ -1,14 +1,17 @@
-import useBucketStorage from '../hooks/useBucketStorage';
+import { RestaurantMenuItem } from '../types/restaurants';
 
 import AddBucketButton from './AddBucketButton';
 import MenuListItem from './MenuListItem';
 
-export default function BucketList() {
-  const { bucket, removeMenu } = useBucketStorage();
+type BucketListProps = {
+  bucketList: RestaurantMenuItem[];
+  handleClickRemove: (index: number) => void;
+}
 
+export default function BucketList({ bucketList, handleClickRemove }: BucketListProps) {
   return (
     <ul>
-      {bucket.map((bucketItem, index) => {
+      {bucketList.map((bucketItem, index) => {
         const keyId = `${bucketItem.id}-${index}`;
         return (
           <MenuListItem
@@ -18,7 +21,7 @@ export default function BucketList() {
             <AddBucketButton
               name={`#${bucketItem.name}`}
               title="취소"
-              onClick={() => removeMenu(index)}
+              onClick={() => handleClickRemove(index)}
             />
           </MenuListItem>
         );

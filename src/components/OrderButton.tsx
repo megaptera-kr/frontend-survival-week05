@@ -4,23 +4,15 @@ import useReceipt from '../hooks/useReceipt';
 
 import priceToLocal from '../utils/priceToLocal';
 
-export default function OrderButton() {
-  const { totalPrice, clearBasket } = useBucketStorage();
-  const { postOrder } = usePostOrder();
-  const { addReceipt } = useReceipt();
+type OrderButtonProps = {
+  text: string;
+  onClick: () => void;
+}
 
-  const buttonText = `합계: ${priceToLocal(totalPrice)}원 주문`;
-
-  const handleClickOrder = async () => {
-    const { receipt } = await postOrder();
-
-    addReceipt(receipt);
-    clearBasket();
-  };
-
+export default function OrderButton({ text, onClick }: OrderButtonProps) {
   return (
-    <button type="button" onClick={() => handleClickOrder()}>
-      {buttonText}
+    <button type="button" onClick={onClick}>
+      {text}
     </button>
   );
 }
