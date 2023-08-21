@@ -2,26 +2,13 @@ import express from 'express';
 import cors from 'cors';
 
 const port = 3000;
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
-app.post('/orders', (req, res) => {
-  const { menu, totalPrice } = req.body;
-
-  const receipt = {
-    id: Date.now().toString(),
-    menu,
-    totalPrice,
-  };
-
-  res.status(201).send({ receipt });
+  res.send('hello');
 });
 
 app.get('/restaurants', (req, res) => {
@@ -61,11 +48,19 @@ app.get('/restaurants', (req, res) => {
       ],
     },
   ];
-
   res.send({ restaurants });
 });
 
+app.post('/orders', (req, res) => {
+  const { totalPrice, menu } = req.body;
+  const receipt = {
+    id: Date.now().toString(),
+    menu,
+    totalPrice,
+  };
+  res.send({ receipt });
+});
+
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`server runing at http://localhost:${port}`);
 });
