@@ -1,6 +1,9 @@
 import { render, waitFor, screen } from '@testing-library/react';
 
 import App from './App';
+import restaurants from '../fixtures/restaurants';
+
+jest.mock('./hooks/useFetchRestaurants', () => () => restaurants);
 
 describe('App ', () => {
   it('renders restaurants', async () => {

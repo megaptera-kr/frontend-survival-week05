@@ -1,20 +1,22 @@
+import { useState } from 'react';
+import TextField from './components/TextField';
+import useFetchProducts from './hooks/useFetchRestaurants';
+import CategoryButtons from './components/CategoryButtons';
+import { Category } from './types';
+
 export default function App() {
+  const [query, setQuery] = useState<string>('');
+  const [category, setCategory] = useState<Category>('전체');
+  const data = useFetchProducts();
+  console.log(data);
   return (
     <>
       <h1>푸드코트 키오스크</h1>
       <h2>점심 바구니</h2>
       <button type="button">합계 : 0원 주문</button>
 
-      <div>
-        <label htmlFor="search">검색</label>
-        <input id="search" placeholder="식당 이름" />
-      </div>
-      <ul>
-        <li><button type="button">전체</button></li>
-        <li><button type="button">중식</button></li>
-        <li><button type="button">한식</button></li>
-        <li><button type="button">일식</button></li>
-      </ul>
+      <TextField label="검색" value={query} setValue={setQuery} placeholder="식당 이름" />
+      <CategoryButtons setCategory={setCategory} />
       <table>
         <thead>
           <tr>
