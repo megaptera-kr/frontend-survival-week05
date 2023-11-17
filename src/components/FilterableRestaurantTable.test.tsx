@@ -1,10 +1,10 @@
 import { render, waitFor, screen } from '@testing-library/react';
 
-import App from './App';
+import FilterableRestaurantTable from './FilterableRestaurantTable';
 
-describe('App ', () => {
-  it('renders restaurants', async () => {
-    render(<App />);
+describe('RestaurantTable ', () => {
+  it('renders restaurantTable', async () => {
+    render(<FilterableRestaurantTable />);
 
     // await waitFor(() => {
     //   screen.getByText(/메가반점/);
