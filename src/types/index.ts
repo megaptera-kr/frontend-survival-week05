@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export type Menu = {
     id : string,
     name : string,
@@ -18,3 +20,5 @@ export type Receipt = {
 }
 
 export type Category = '전체' | '중식' | '한식' | '일식';
+
+export type SetValue<T> = Dispatch<SetStateAction<T>>

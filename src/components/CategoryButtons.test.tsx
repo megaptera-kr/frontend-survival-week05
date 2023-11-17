@@ -10,10 +10,11 @@ describe('CategoryButtons', () => {
     jest.clearAllMocks();
   });
 
+  const renderCategoryButtons = () => render(<CategoryButtons setCategory={setCategory} />);
+
   it('renders elements', () => {
     // when
-    render(<CategoryButtons setCategory={setCategory} />);
-
+    renderCategoryButtons();
     // then
     screen.getByText('전체');
     screen.getByText('중식');
@@ -24,7 +25,7 @@ describe('CategoryButtons', () => {
   // button을 클릭했을때 category가 잘 변하는지 보고싶다.
   context('when user click button', () => {
     it('calls setCategory handler', () => {
-      render(<CategoryButtons setCategory={setCategory} />);
+      renderCategoryButtons();
 
       fireEvent.click(screen.getByText('중식'));
       expect(setCategory).toHaveBeenCalledWith('중식');
