@@ -8,7 +8,7 @@ export default function App() {
   useEffect(() => {
     const getRestaurants = async () => {
       const response = await useFetchRestaurants()
-      setRestaurants([...response])
+      setRestaurants([...response.restaurants])
     }
     getRestaurants()
   }, [])
