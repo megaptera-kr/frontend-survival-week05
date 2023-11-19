@@ -1,49 +1,45 @@
-import { useEffect, useState } from "react"
-import { RestaurantListInterface } from "../interfaces/RestaurantList.interface"
+import { useEffect, useState } from 'react';
+import { RestaurantListInterface } from '../interfaces/RestaurantList.interface';
 
-const useRestaurants = (entireRestaurant :RestaurantListInterface[] ) => {
-  const [restaurants, setRestaurants] = useState<RestaurantListInterface[]>([])
-  const [categories, setCategories] = useState<string[]>([])
+const useRestaurants = (entireRestaurant :RestaurantListInterface[]) => {
+  const [restaurantList, setRestaurantList] = useState<RestaurantListInterface[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [currentCategory, setCurrentCategory] = useState('전체');
-  const [searchKeyword, setSearchKeyword] = useState<string>('')
-  
+  const [searchKeyword, setSearchKeyword] = useState<string>('');
+
   const handleChangeCategory = (category : string) => {
-    setCurrentCategory(category)
-  }
+    setCurrentCategory(category);
+  };
 
   const setFilteredRestaurants = () => {
     const filteredRestaurants = entireRestaurant.filter((item) => {
       if (currentCategory === '전체') {
-        return true
-      } else {
-        return item.category === currentCategory
+        return true;
       }
+      return item.category === currentCategory;
     }).filter((item) => {
       if (searchKeyword.trim() === '') {
-        return true
-      } else {
-        return item.name.includes(searchKeyword)
+        return true;
       }
-    })
-    setRestaurants([...filteredRestaurants])
-  }
+      return item.name.includes(searchKeyword);
+    });
+    setRestaurantList([...filteredRestaurants]);
+  };
 
-  
-  
-  useEffect( () => {
-    setFilteredRestaurants()
+  useEffect(() => {
+    setFilteredRestaurants();
   }, [currentCategory, searchKeyword]);
 
   return {
-    restaurants,
-    setRestaurants,
+    restaurantList,
+    setRestaurantList,
     categories,
     setCategories,
     currentCategory,
     handleChangeCategory,
     searchKeyword,
-    setSearchKeyword
-  }
-}
+    setSearchKeyword,
+  };
+};
 
-export default useRestaurants
+export default useRestaurants;

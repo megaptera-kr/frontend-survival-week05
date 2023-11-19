@@ -1,12 +1,7 @@
-import Category from "../Category/Category";
+import { CategoryProps } from '../../interfaces/RestaurantList.interface';
+import Category from '../Category/Category';
 
-interface CategoryProps {
-  categories: string[]
-  currentCategory : string
-  handleChangeCategory: (category: string) => void
-}
-
-const Categories = ({categories, currentCategory, handleChangeCategory} : CategoryProps) => {
+function Categories({ categories, currentCategory, handleChangeCategory } : CategoryProps) {
   return (
     <ul className="categories">
       {categories.map((category) => (
@@ -16,9 +11,8 @@ const Categories = ({categories, currentCategory, handleChangeCategory} : Catego
           currentCategory={currentCategory}
           onChangeCategory={handleChangeCategory}
         />
-      )
-      )}
+      ))}
     </ul>
-  )
+  );
 }
 export default Categories;

@@ -1,4 +1,6 @@
-const foods = [
+import { MenuInterface } from '../src/interfaces/RestaurantList.interface';
+
+const foods : MenuInterface[] = [
   {
     id: 'FOOD_01',
     name: '짜장면',

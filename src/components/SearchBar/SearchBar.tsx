@@ -1,19 +1,13 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent } from 'react';
+import { SearchBarProps } from '../../interfaces/RestaurantList.interface';
 
-interface SearchBarProps {
-  searchKeyword: string
-  onChangeSearchKeyword : (keyword : string) => void
-}
-
-const SearchBar = ({searchKeyword, onChangeSearchKeyword} : SearchBarProps) => {
+function SearchBar({ searchKeyword, onChangeSearchKeyword } : SearchBarProps) {
   const handleChangeSearchKeyword = (event : ChangeEvent<HTMLInputElement>) => {
-    onChangeSearchKeyword(event.target.value)
-  }
+    onChangeSearchKeyword(event.target.value);
+  };
   return (
-    <>
-      <input type="text" value={searchKeyword} onInput={handleChangeSearchKeyword}/>
-    </>
-  )
+    <input type="text" value={searchKeyword} onInput={handleChangeSearchKeyword} />
+  );
 }
 
-export default SearchBar
+export default SearchBar;

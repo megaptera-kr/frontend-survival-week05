@@ -1,6 +1,6 @@
-import foods from './foods';
+import { RestaurantListInterface } from '../src/interfaces/RestaurantList.interface';
 
-const restaurants = [
+const restaurants : RestaurantListInterface[ ] = [
   {
     id: '1',
     category: '중식',
