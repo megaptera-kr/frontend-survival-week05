@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
-import { fetchGetRestaurants } from "../utils/apiService";
-import { RestaurantList } from "../../types";
-import { ApiError } from "../../api";
+import { useEffect, useState } from 'react';
+import { fetchGetRestaurants } from '../utils/apiService';
+import { RestaurantList } from '../../types';
+import { ApiError } from '../../api';
 
 const useFetchResturant = () => {
   const [data, setData] = useState<RestaurantList>();
   const [error, setError] = useState('');
-  
+
   useEffect(() => {
     const init = async () => {
       try {
@@ -17,12 +17,12 @@ const useFetchResturant = () => {
 
         setError(err.message);
       }
-    }
-    
+    };
+
     init();
   }, []);
 
-  return { data, error }
-}
+  return { data, error };
+};
 
 export default useFetchResturant;

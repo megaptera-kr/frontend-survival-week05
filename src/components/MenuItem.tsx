@@ -1,4 +1,5 @@
 import { Menu } from '../../types';
+import Grid from './Grid';
 
 type Props = {
   menuItem: Menu;
@@ -7,11 +8,13 @@ type Props = {
   onClick?: (payload: { menuItem: Menu; menuIndex: number }) => void;
 };
 
-function MenuItem({ menuItem, index, btnLabel = '선택', onClick }: Props) {
+function MenuItem({
+  menuItem, index, btnLabel = '선택', onClick,
+}: Props) {
   const handleClick = () => onClick && onClick({ menuItem, menuIndex: index });
 
   return (
-    <div className="column">
+    <Grid gridTemplateColumns="200px 100px" rowGap={16}>
       {`${menuItem.name}(${menuItem.price.toLocaleString()})원`}
       {onClick && (
         <button
@@ -22,7 +25,7 @@ function MenuItem({ menuItem, index, btnLabel = '선택', onClick }: Props) {
           {btnLabel}
         </button>
       )}
-    </div>
+    </Grid>
   );
 }
 

@@ -38,14 +38,13 @@ interface Res<T> {
 
 export const httpRequest = async <T>(url: string, method: MethodValueType, body?: any) => {
   try {
-    
-    const config = { 
+    const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
-      method, 
-      body 
+      method,
+      body,
     };
 
     if (body) config.body = JSON.stringify(body);
@@ -59,9 +58,8 @@ export const httpRequest = async <T>(url: string, method: MethodValueType, body?
 
     return jsonData;
   } catch (error: unknown) {
-  
     if (error instanceof ApiError) throw error;
 
     throw new ApiError('Server Error', Status.BAD, error);
   }
-}
+};

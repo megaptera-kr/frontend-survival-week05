@@ -2,7 +2,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
-    './src/setupTests.js'
+    './src/setupTests.js',
   ],
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest', {
@@ -19,8 +19,8 @@ module.exports = {
         },
       },
     }],
-    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-    '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform'
+    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
-  
+
 };

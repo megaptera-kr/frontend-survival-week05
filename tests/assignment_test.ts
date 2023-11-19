@@ -11,12 +11,12 @@ Scenario('메뉴판 필터링', ({ I }) => {
   I.click('한식');
   I.see('메리김밥');
   I.see('김밥');
-  
+
   I.click('전체');
   I.fillField('검색', '메가반점');
   I.dontSee('메리김밥');
   I.dontSee('김밥');
-  
+
   I.fillField('검색', '메');
   I.click('한식');
   I.see('메리김밥');

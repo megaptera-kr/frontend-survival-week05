@@ -7,12 +7,14 @@ interface Props {
   onChange: (value: string) => void;
 }
 
-function Input({ value, label, placeholder, onChange }: Props) {
+function Input({
+  value, label, placeholder, onChange,
+}: Props) {
   const handleChange = useCallback(
     ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
       onChange(value);
     },
-    []
+    [],
   );
 
   return (

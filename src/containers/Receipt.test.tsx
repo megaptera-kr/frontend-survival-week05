@@ -1,5 +1,5 @@
 import {
-  act, render, renderHook, screen, waitFor,
+  act, render, renderHook, screen,
 } from '@testing-library/react';
 import Receipt from './Receipt';
 import { useReceiptStorage } from '../hooks/useStorage';

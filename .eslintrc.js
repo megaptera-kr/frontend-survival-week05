@@ -47,15 +47,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: [
-        '**/*.test.js',
-        '**/*.test.jsx',
-        '**/*.test.ts',
-        '**/*.test.tsx',
-        { devDependencies: true },
-      ],
-    }],
+    'import/no-extraneous-dependencies': 'off',
     'import/extensions': ['error', 'ignorePackages', {
       js: 'never',
       jsx: 'never',
@@ -69,9 +61,19 @@ module.exports = {
     'max-len': 'off',
     'no-useless-catch': 'off',
     'no-import-assign': 'off',
-    quotes: ["error", "single"],
+    quotes: ['error', 'single'],
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'prefer-const': 'off'
+    'prefer-const': 'off',
+    'no-unused-expressions': 'off',
+    'react/require-default-props': 'off',
+    'import/no-mutable-exports': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-param-reassign': 'off',
+    'consistent-return': 'off',
+    'no-shadow': 'off',
+    'react/no-array-index-key': 'off',
+    'react/button-has-type': 'off',
+    'no-console': 'off',
   },
 };

@@ -6,17 +6,17 @@ import useInput from '../hooks/useResturantFilter';
 import useFetchResturant from '../hooks/useFetchResturant';
 import { RestaurantList } from '../../types';
 import filterList from '../utils/filterList';
+import Grid from '../components/Grid';
 
-export const Loading = () => {
+export function Loading() {
   return <span>Loading...</span>;
-};
+}
 
 const useRestaurantListFilter = (name: string, category: string) => {
-  const { data, error } = useFetchResturant();
+  const { data } = useFetchResturant();
 
-  const filtered =
-    data &&
-    (filterList(data, [
+  const filtered = data
+    && (filterList(data, [
       { category: 'category', keyword: category },
       { category: 'name', keyword: name },
     ]) as RestaurantList);
@@ -27,7 +27,7 @@ const useRestaurantListFilter = (name: string, category: string) => {
   };
 };
 
-const Restaurants = () => {
+function Restaurants() {
   const { value: name, handleChange: handleKeywordChange } = useInput('');
   const { value: category, handleChange: handleCategoryClick } = useInput('');
 
@@ -53,15 +53,15 @@ const Restaurants = () => {
         />
       </section>
       <section className="row">
-        <ul className="column">
+        <Grid gridTemplateColumns=".3fr .3fr 1fr">
           <li>식당 이름</li>
           <li>종류</li>
           <li>메뉴</li>
-        </ul>
+        </Grid>
         {filtered && <ResturantsList resturantsList={filtered} />}
       </section>
     </div>
   );
-};
+}
 
 export default Restaurants;

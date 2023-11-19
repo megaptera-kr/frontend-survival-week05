@@ -1,16 +1,16 @@
-import { useState } from "react"
-import { fetchPostOrders } from "../utils/apiService";
-import { PostOrdersResponse } from "../../types";
-import { ApiError } from "../../api";
-import { useCartStorage, useReceiptStorage } from "./useStorage";
-import createReceiptData from "../utils/createReceiptData";
+import { useState } from 'react';
+import { fetchPostOrders } from '../utils/apiService';
+import { PostOrdersResponse } from '../../types';
+import { ApiError } from '../../api';
+import { useCartStorage, useReceiptStorage } from './useStorage';
+import createReceiptData from '../utils/createReceiptData';
 
 const useFetchOrders = () => {
   const [data, setData] = useState<PostOrdersResponse>();
   const [error, setError] = useState('');
   const { cart, setCart } = useCartStorage();
   const { setReceipt } = useReceiptStorage();
-  
+
   const request = async () => {
     try {
       const receipt = createReceiptData(cart);
@@ -23,7 +23,7 @@ const useFetchOrders = () => {
 
       setError(err.message);
     }
-  }
+  };
 
   const payment = async () => {
     try {
@@ -31,11 +31,13 @@ const useFetchOrders = () => {
       setCart([]);
       res && setReceipt(res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
-  return { request, data, error, payment }
-}
+  return {
+    request, data, error, payment,
+  };
+};
 
 export default useFetchOrders;

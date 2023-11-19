@@ -1,10 +1,9 @@
 import MenuItem from '../components/MenuItem';
 import useFetchOrders from '../hooks/useFetchOrders';
-import { useCartStorage, useReceiptStorage } from '../hooks/useStorage';
+import { useCartStorage } from '../hooks/useStorage';
 import createReceiptData from '../utils/createReceiptData';
 
 export const testFn = () => {};
-
 
 function Cart() {
   const { cart, handleRemoveCart } = useCartStorage();
@@ -14,7 +13,7 @@ function Cart() {
   const receiptData = createReceiptData(cart);
 
   return (
-    <article>
+    <article data-testid="Cart">
       <h2>점심 바구니</h2>
       <ul>
         {cart.map((menu, index) => (

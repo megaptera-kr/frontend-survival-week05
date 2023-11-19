@@ -1,6 +1,5 @@
 import { renderHook } from '@testing-library/react';
 import useStorage from './useStorage';
-import useFetchOrders from './useFetchOrders';
 
 describe('useStorageHook test', () => {
   test('데이터 key와 기본 값을 전달하면 현재 로컬 스토리지의 값과 setter를 준다', () => {
