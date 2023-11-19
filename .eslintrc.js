@@ -53,6 +53,7 @@ module.exports = {
         '**/*.test.jsx',
         '**/*.test.ts',
         '**/*.test.tsx',
+        { devDependencies: true },
       ],
     }],
     'import/extensions': ['error', 'ignorePackages', {
@@ -66,5 +67,7 @@ module.exports = {
     }],
     'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
     'max-len': 'off',
+    'no-useless-catch': 'off',
+    'no-import-assign': 'off',
   },
 };

@@ -2,6 +2,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
+    './src/setupTests.js'
   ],
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest', {

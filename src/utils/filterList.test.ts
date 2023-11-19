@@ -1,31 +1,4 @@
-const foodCategory = {
-  kr: '한식',
-  jp: '일식',
-  ch: '중식',
-} as const;
-
-type FoodCategory = typeof foodCategory;
-
-type FoodCategoryKey = keyof FoodCategory;
-
-type FoodCategoryValue = FoodCategory[FoodCategoryKey];
-
-interface Menu {
-  id: string;
-  name: string;
-  price: number;
-}
-
-type MenuList = Menu[];
-
-interface Restaurant {
-  id: string;
-  category: FoodCategoryValue;
-  name: string;
-  menu: MenuList
-}
-
-type RestaurantList = Restaurant[];
+import { RestaurantList } from '../../types';
 
 describe('filterList', () => {
   // keyword, data가 없으면 그대로 반환한다.
