@@ -25,7 +25,9 @@ export default function MenuTableRow({ restauant }: MenuTableRowProps) {
             <Li key={`${id}-${itemName}-${price}`}>
               <Text>{`${itemName}(${price.toLocaleString()}원)`}</Text>
               <Button
+                aria-label={`#${itemName}`}
                 type="button"
+                role="button"
                 name={`#${itemName}`}
                 onClick={() => addMenu({ id, name: itemName, price })}
               >

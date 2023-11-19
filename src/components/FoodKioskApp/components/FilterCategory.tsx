@@ -12,6 +12,7 @@ export default function FilterCategory() {
       {categories.map((item, index) => (
         <Li key={item} className="category-li">
           <Button
+            name={item}
             type="button"
             value={item}
             onClick={handleClickCategory}

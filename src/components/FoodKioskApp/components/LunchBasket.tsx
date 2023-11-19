@@ -38,9 +38,13 @@ export default function LunchBasket({ title }: LunchBasketProps) {
           선택된 메뉴가 없습니다.
         </Stack>
       )}
+
       <Button
+        aria-label="order"
+        name="order"
         className="cta-button"
         type="button"
+        role="button"
         onClick={orderMenus}
         disabled={disabled}
       >
