@@ -16,7 +16,7 @@ function MenuItem({ menuItem, index, btnLabel = '선택', onClick }: Props) {
       {onClick && (
         <button
           data-testid="PickFoodBtn"
-          name={`#${menuItem.name}`}
+          name={`#${menuItem.name}${btnLabel}`}
           onClick={handleClick}
         >
           {btnLabel}

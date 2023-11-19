@@ -18,3 +18,19 @@ ul, li {
   grid-template-columns: repeat(3, 1fr);  
   column-gap: 1rem;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+button {
+  background: none;
+  border: none;
+  transition: .5s;
+}
+
+button:hover {
+  background: lightblue;
+}

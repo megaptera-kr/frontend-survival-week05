@@ -36,9 +36,21 @@ interface Res<T> {
   message: string;
 }
 
-const api = async <T>(url: string, method: MethodValueType, body?: any) => {
+export const httpRequest = async <T>(url: string, method: MethodValueType, body?: any) => {
   try {
-    const response = await fetch(`http://localhost:3000${url}`, { method, body });
+    
+    const config = { 
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      method, 
+      body 
+    };
+
+    if (body) config.body = JSON.stringify(body);
+
+    const response = await fetch(`http://localhost:3000${url}`, config);
     const jsonData = await response.json() as Res<T>;
 
     const { status, message } = jsonData;
@@ -52,6 +64,4 @@ const api = async <T>(url: string, method: MethodValueType, body?: any) => {
 
     throw new ApiError('Server Error', Status.BAD, error);
   }
-};
-
-export default api;
+}

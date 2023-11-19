@@ -1,4 +1,5 @@
 import { RestaurantList } from '../../types';
+import filterList from './filterList';
 
 describe('filterList', () => {
   // keyword, data가 없으면 그대로 반환한다.
@@ -108,27 +109,6 @@ describe('filterList', () => {
       ],
     },
   ];
-
-  interface FilterCondition { category: string; keyword: string; }
-
-  const filterList = <T extends { [key: string]: any; }[]>(
-    targetList: T,
-    condition?: FilterCondition | FilterCondition[],
-  ) => {
-    if (!condition) return targetList;
-
-    if (Array.isArray(condition)) {
-      return targetList.filter((row) => condition.every(({ category, keyword }) => row[category].includes(keyword)));
-    }
-
-    const { category, keyword } = condition;
-
-    if (!(category || keyword)) return targetList;
-
-    const filtered = targetList.filter((row) => row[category].includes(keyword));
-
-    return filtered;
-  };
 
   test('필터 유형, 필터 키워드가 없으면 받은 필터 행위 없이 리스트 그대로 반환한다.', () => {
     const filtered = filterList<RestaurantList>(list);

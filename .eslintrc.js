@@ -71,6 +71,7 @@ module.exports = {
     'no-import-assign': 'off',
     quotes: ["error", "single"],
     'react/jsx-props-no-spreading': 'off',
-    '@typescript-eslint/no-empty-function': 'off'
+    '@typescript-eslint/no-empty-function': 'off',
+    'prefer-const': 'off'
   },
 };

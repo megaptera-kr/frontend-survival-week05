@@ -1,6 +1,3 @@
-// onChange 이벤트 시 입력된 value값 전달되는지
-
-// placeholder 잘 표기되는지
 import { fireEvent, render, screen } from '@testing-library/react';
 import Input from './Input';
 

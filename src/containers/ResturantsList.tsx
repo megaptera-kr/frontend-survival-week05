@@ -1,15 +1,21 @@
+import { RestaurantList } from '../../types';
 import MenuItem from '../components/MenuItem';
-import { useFetchResturant } from '../hooks/useFetchResturant';
+import useFetchResturant from '../hooks/useFetchResturant';
+import { useCartStorage } from '../hooks/useStorage';
 import { Loading } from './Resturants';
 
-const ResturantsList = () => {
-  const { data, error } = useFetchResturant();
+const ResturantsList = ({
+  resturantsList,
+}: {
+  resturantsList: RestaurantList;
+}) => {
+  const { handleAddCart } = useCartStorage();
 
-  if (!data) return <Loading />;
+  if (!resturantsList) return <Loading />;
 
   return (
     <div data-testid="ResturantsList" className="row">
-      {data.map(row => (
+      {resturantsList.map(row => (
         <ul
           data-testid={`ResturantsItem${row.id}`}
           className="column"
@@ -24,7 +30,7 @@ const ResturantsList = () => {
                   <MenuItem
                     menuItem={menuItem}
                     index={index}
-                    onClick={() => {}}
+                    onClick={handleAddCart}
                   />
                 </li>
               ))}
