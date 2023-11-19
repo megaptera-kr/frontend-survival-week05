@@ -1,13 +1,15 @@
-import { Menu, SetValue } from '../types';
+import { useLocalStorage } from 'usehooks-ts';
+import { Menu } from '../types';
 
 type Props = {
     menu : Menu
-    setCart : SetValue<Menu[]>
 }
 
-function MenuRow({ menu, setCart } : Props) {
+function MenuRow({ menu } : Props) {
+  const [cart, setCart] = useLocalStorage<Menu[]>('cart', []);
+
   const handleAddCart = (el : Menu) => {
-    setCart((prev) => [...prev, el]);
+    setCart(() => [...cart, el]);
   };
 
   return (
@@ -18,7 +20,7 @@ function MenuRow({ menu, setCart } : Props) {
         {menu.price.toLocaleString()}
         원)
       </span>
-      <button type="button" onClick={() => handleAddCart(menu)}>선택</button>
+      <button type="button" name={menu.name} onClick={() => handleAddCart(menu)}>선택</button>
     </li>
   );
 }

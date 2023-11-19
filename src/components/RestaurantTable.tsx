@@ -1,12 +1,11 @@
-import { Menu, Restaurant, SetValue } from '../types';
+import { Restaurant } from '../types';
 import MenuRow from './MenuRow';
 
 type Props = {
-  setCart : SetValue<Menu[]>,
   restaurants: Restaurant[]
 }
 
-function RestaurantTable({ setCart, restaurants }:Props) {
+function RestaurantTable({ restaurants }:Props) {
   return (
     <table>
       <thead>
@@ -28,7 +27,7 @@ function RestaurantTable({ setCart, restaurants }:Props) {
             <td>
               <ul>
                 {restaurant.menu.map((menu) => (
-                  <MenuRow key={menu.id} menu={menu} setCart={setCart} />
+                  <MenuRow key={menu.id} menu={menu} />
                 ))}
               </ul>
             </td>

@@ -1,13 +1,14 @@
+import { useLocalStorage } from 'usehooks-ts';
 import useCreateOrder from '../hooks/useCreateOrder';
 import { Menu, Receipt, SetValue } from '../types';
 import calculateTotalPrice from '../utils/calculateTotalPrice';
 
 type Props = {
-    cart : Menu[],
-    setCart : SetValue<Menu[]>,
     setReceipt: SetValue<Receipt>
 }
-function Cart({ cart, setCart, setReceipt }:Props) {
+
+function Cart({ setReceipt }:Props) {
+  const [cart, setCart] = useLocalStorage<Menu[]>('cart', []);
   const totalPrice = calculateTotalPrice(cart);
   const { createOrder } = useCreateOrder();
 
@@ -40,12 +41,12 @@ function Cart({ cart, setCart, setReceipt }:Props) {
               {menu.price.toLocaleString()}
               원
               )
-              <button type="button" onClick={() => handleCartDelete(index)}>취소</button>
+              <button type="button" name={`${menu.name}-cancel`} onClick={() => handleCartDelete(index)}>취소</button>
             </li>
           );
         })}
       </ul>
-      <button type="button" onClick={handleOrder}>
+      <button id="order-button" type="button" onClick={handleOrder}>
         합계 :
         {totalPrice.toLocaleString()}
         원 주문
