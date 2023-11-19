@@ -27,9 +27,7 @@ interface Restaurant {
 
 type RestaurantList = Restaurant[];
 
-interface GetRestaurantsResponse {
-  restaurants: RestaurantList;
-}
+type GetRestaurantsResponse = RestaurantList;
 
 interface PostOrdersPayload {
   menu: MenuList;

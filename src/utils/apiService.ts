@@ -3,7 +3,7 @@ import api, { Path } from '../../api';
 
 export const fetchGetRestaurants = async () => {
   const res = await api<GetRestaurantsResponse>(Path.restaurants, 'get');
-
+  
   return res;
 };
 

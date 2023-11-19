@@ -47,6 +47,7 @@ const api = async <T>(url: string, method: MethodValueType, body?: any) => {
 
     return jsonData;
   } catch (error: unknown) {
+  
     if (error instanceof ApiError) throw error;
 
     throw new ApiError('Server Error', Status.BAD, error);

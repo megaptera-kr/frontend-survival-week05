@@ -69,5 +69,8 @@ module.exports = {
     'max-len': 'off',
     'no-useless-catch': 'off',
     'no-import-assign': 'off',
+    quotes: ["error", "single"],
+    'react/jsx-props-no-spreading': 'off',
+    '@typescript-eslint/no-empty-function': 'off'
   },
 };

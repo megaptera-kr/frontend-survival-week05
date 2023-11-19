@@ -21,7 +21,7 @@ app.post('/orders', (req, res) => {
     totalPrice,
   };
 
-  res.status(201).send({ receipt });
+  res.status(201).send({ data: receipt, status: 200, message: 'Success' });
 });
 
 app.get('/restaurants', (req, res) => {
@@ -62,7 +62,7 @@ app.get('/restaurants', (req, res) => {
     },
   ];
 
-  res.send({ restaurants });
+  res.send({ data: restaurants, status: 200, message: 'Success' });
 });
 
 app.listen(port, () => {
