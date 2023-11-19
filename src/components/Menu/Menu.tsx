@@ -9,6 +9,7 @@ function Menu({ menu, onAddCart } : MenuProps) {
         onAddCart ? (
           <button
             type="button"
+            name={`#${menu.name}`}
             onClick={() => {
               onAddCart(menu);
             }}

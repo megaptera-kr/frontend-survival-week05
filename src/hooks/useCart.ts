@@ -1,26 +1,28 @@
 import { useState } from 'react';
-import { MenuInterface } from '../interfaces/RestaurantList.interface';
+import { MenuInterface, OrderPostInterface } from '../interfaces/RestaurantList.interface';
 import URL from '../constants/constants';
 
 const useCart = () => {
   const [cartMenu, setCartMenu] = useState<MenuInterface[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleAddCart = (menu: MenuInterface) => {
     const mergedCartMenu = [...cartMenu];
     mergedCartMenu.push(menu);
+    const sum = mergedCartMenu.reduce((acc, cur) => acc + cur.price, 0);
     setCartMenu([...mergedCartMenu]);
+    setTotalPrice(sum);
   };
 
-  const handleRegistOrder = async () => {
+  const handleRegistOrder = async (postData : OrderPostInterface) => {
     const response = await fetch(`${URL.BASE_URL}/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify(postData),
     });
-    // eslint-disable-next-line no-console
-    console.log(response);
-    // return restaurants
+    return response.json();
   };
 
   return {
@@ -28,6 +30,7 @@ const useCart = () => {
     setCartMenu,
     handleAddCart,
     handleRegistOrder,
+    totalPrice,
   };
 };
 export default useCart;

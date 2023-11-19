@@ -1,16 +1,16 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import useGetRestaurants from './hooks/useGetRestaurants';
 import RestaurantList from './components/RestaurantList/RestaurantList';
-import { RestaurantListInterface } from './interfaces/RestaurantList.interface';
+import { ReceiptInterface, RestaurantListInterface } from './interfaces/RestaurantList.interface';
 import Cart from './components/Cart/Cart';
 import SearchBar from './components/SearchBar/SearchBar';
 import Categories from './components/Categories/Categories';
 import useRestaurants from './hooks/useRestaurant';
 import useCart from './hooks/useCart';
+import Receipt from './components/Receipt/Receipt';
 
 export default function App() {
   const entireRestaurant = useRef<RestaurantListInterface[]>([]);
-  const { cartMenu, handleAddCart, handleRegistOrder } = useCart();
   const {
     restaurantList,
     setRestaurantList,
@@ -21,9 +21,32 @@ export default function App() {
     searchKeyword,
     setSearchKeyword,
   } = useRestaurants(entireRestaurant.current);
+  const {
+    cartMenu, totalPrice, handleAddCart, handleRegistOrder,
+  } = useCart();
 
   const handleChangeSearchKeyword = (keyword : string) => {
     setSearchKeyword(keyword);
+  };
+  const initReceipt : ReceiptInterface = {
+    id: '0',
+    menu: [],
+    totalPrice: 0,
+  };
+  const [receipt, setReceipt] = useState<ReceiptInterface>({ ...initReceipt });
+
+  const handleGetReceiption = async () => {
+    const response = await handleRegistOrder(
+      {
+        menu: cartMenu,
+        totalPrice,
+      },
+    );
+    setReceipt(response.receipt);
+  };
+
+  const handleInitReceipt = () => {
+    setReceipt({ ...initReceipt });
   };
 
   useEffect(() => {
@@ -49,7 +72,20 @@ export default function App() {
       />
       <RestaurantList restaurants={restaurantList} handleAddCart={handleAddCart} />
       {cartMenu?.length > 0
-        && <Cart cartMenu={cartMenu} onRegistOrder={handleRegistOrder} />}
+        && (
+          <Cart
+            cartMenu={cartMenu}
+            totalPrice={totalPrice}
+            onRegistOrder={() => {
+              handleGetReceiption();
+            }}
+          />
+        )}
+      {
+        receipt.totalPrice && (
+          <Receipt receipt={receipt} onInitReceipt={handleInitReceipt} />
+        )
+      }
     </>
   );
 }

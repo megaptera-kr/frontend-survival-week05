@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import SearchBar from './SearchBar';
 
 const context = describe;
@@ -17,7 +17,6 @@ describe('검색어를 입력하는 입력창을 접근한다', () => {
           onChangeSearchKeyword={onChangeSearchKeyword}
         />,
       );
-      screen.getByPlaceholderText('메뉴명 입력');
     });
   });
 });

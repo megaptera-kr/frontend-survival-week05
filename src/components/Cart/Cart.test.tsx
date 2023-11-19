@@ -11,10 +11,16 @@ const handleRegistOrder = () => {
 
 };
 
+const totalPrice = foods.reduce((acc, cur) => acc + cur.price, 0);
+
 describe('Cart', () => {
   context('with cartMenu', () => {
     it('renders Cart component', () => {
-      render(<Cart cartMenu={cartMenu} onRegistOrder={handleRegistOrder} />);
+      render(<Cart
+        cartMenu={cartMenu}
+        totalPrice={totalPrice}
+        onRegistOrder={handleRegistOrder}
+      />);
     });
   });
 });

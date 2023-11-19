@@ -6,7 +6,7 @@ function SearchBar({ searchKeyword, onChangeSearchKeyword } : SearchBarProps) {
     onChangeSearchKeyword(event.target.value);
   };
   return (
-    <input type="text" value={searchKeyword} onInput={handleChangeSearchKeyword} />
+    <input type="text" placeholder="메뉴명 입력" value={searchKeyword} onInput={handleChangeSearchKeyword} />
   );
 }
 

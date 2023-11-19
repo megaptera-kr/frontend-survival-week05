@@ -23,6 +23,12 @@ export interface ReceiptInterface {
   totalPrice: number
 }
 
+// Order Interface
+export interface OrderPostInterface {
+  menu : MenuInterface[],
+  totalPrice : number
+}
+
 // Props Interface
 export interface MenuProps {
   menu : MenuInterface
@@ -31,6 +37,7 @@ export interface MenuProps {
 
 export interface CartProps {
   cartMenu: MenuInterface[]
+  totalPrice : number
   onRegistOrder : () => void
 }
 
@@ -53,4 +60,9 @@ export interface CategoryProps {
   categories: string[]
   currentCategory : string
   handleChangeCategory: (category: string) => void
+}
+
+export interface ReceiptProps {
+  receipt : ReceiptInterface
+  onInitReceipt : () => void
 }

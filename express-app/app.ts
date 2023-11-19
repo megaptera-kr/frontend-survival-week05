@@ -21,7 +21,7 @@ app.post('/orders', (req, res) => {
     totalPrice,
   };
 
-  res.status(201).send({ receipt });
+  res.status(201).send(receipt);
 });
 
 app.get('/restaurants', (req, res) => {

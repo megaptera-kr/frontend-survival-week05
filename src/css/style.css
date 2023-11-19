@@ -78,3 +78,15 @@ table{
 .restaurantName, .restaurantCategory{
   width:100px;
 }
+
+.receiptWrap{
+  width:200px;
+  padding:20px;
+  border:1px solid #bebebe;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  border-radius:8px;
+  text-align:center;
+  background:#fff;
+}
