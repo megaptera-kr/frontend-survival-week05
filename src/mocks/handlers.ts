@@ -9,9 +9,9 @@ const handlers = [
     ctx.status(200),
     ctx.json(fixtures.restaurants),
   )),
-  rest.post(`${BASE_URL}/orders`, (req, res, ctx) => {
-    ctx.json(fixtures.receipt);
-  }),
+  // rest.post(`${BASE_URL}/orders`, (req, res, ctx) => {
+  //   ctx.json(fixtures.receipt);
+  // }),
 ];
 
 export default handlers;
