@@ -11,7 +11,6 @@ export default function App() {
       <Grid gridTemplateColumns="0.5fr 1fr 300px" columnGap={16} rowGap={16}>
         <Cart />
         <Restaurants />
-        <h2>[영수증 나오는 곳]</h2>
         <Receipt />
       </Grid>
 

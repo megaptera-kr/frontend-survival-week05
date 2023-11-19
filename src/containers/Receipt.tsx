@@ -9,6 +9,7 @@ function Receipt() {
 
   return (
     <article data-testid="Receipt">
+      <h2>[영수증 나오는 곳]</h2>
       {receipt && (
         <>
           <h2>영수증</h2>
