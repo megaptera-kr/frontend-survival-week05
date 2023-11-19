@@ -1,12 +1,12 @@
 import { useTimeout } from 'usehooks-ts';
 import { ReceiptProps } from '../../interfaces/RestaurantList.interface';
 
-function Receipt({ receipt, onInitReceipt } : ReceiptProps) {
+function Receipt({ receipt, onInitReceipt }: ReceiptProps) {
   useTimeout(() => {
     onInitReceipt();
-  }, 500);
-
+  }, 5000);
   return (
+
     <div className="receiptWrap">
       <h2>영수증 나오는 곳</h2>
       <h3>

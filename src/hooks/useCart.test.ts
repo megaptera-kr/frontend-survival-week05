@@ -4,9 +4,9 @@ import { MenuInterface, OrderPostInterface } from '../interfaces/RestaurantList.
 
 const context = describe;
 
-const cartMenu : MenuInterface[] = [];
+const cartMenu: MenuInterface[] = [];
 
-const handleAddCart = (menu : MenuInterface) => {
+const handleAddCart = (menu: MenuInterface) => {
   cartMenu.push(menu);
 };
 

@@ -25,10 +25,10 @@ export default function App() {
     cartMenu, totalPrice, handleAddCart, handleRegistOrder,
   } = useCart();
 
-  const handleChangeSearchKeyword = (keyword : string) => {
+  const handleChangeSearchKeyword = (keyword: string) => {
     setSearchKeyword(keyword);
   };
-  const initReceipt : ReceiptInterface = {
+  const initReceipt: ReceiptInterface = {
     id: '0',
     menu: [],
     totalPrice: 0,
@@ -42,7 +42,7 @@ export default function App() {
         totalPrice,
       },
     );
-    setReceipt(response.receipt);
+    await setReceipt({ ...response });
   };
 
   const handleInitReceipt = () => {
@@ -53,7 +53,7 @@ export default function App() {
     const getRestaurants = async () => {
       const response = await useGetRestaurants();
       const { restaurants } = response;
-      const getCategories = restaurants.reduce((acc: string[], cur : RestaurantListInterface) => (acc?.includes(cur.category) ? acc : [...acc, cur.category]), ['전체']);
+      const getCategories = restaurants.reduce((acc: string[], cur: RestaurantListInterface) => (acc?.includes(cur.category) ? acc : [...acc, cur.category]), ['전체']);
       entireRestaurant.current = [...restaurants];
       setRestaurantList([...restaurants]);
       setCategories([...getCategories]);
