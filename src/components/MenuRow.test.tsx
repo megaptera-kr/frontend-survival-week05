@@ -13,7 +13,6 @@ describe('MenuRow', () => {
     }}
     />);
 
-    screen.getByText('짜장면');
-    screen.getByText('8,000원');
+    screen.getByText('짜장면(8,000원)');
   });
 });
