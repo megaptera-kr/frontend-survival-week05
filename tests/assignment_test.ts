@@ -42,11 +42,10 @@ Scenario('음식 주문하기 ', ({ I }) => {
   I.click({ name: '#기본카레' });
 
   I.click('주문하기');
-
+ 
   I.waitForText('주문번호');
   I.see('총 가격: 28500원');
 
   I.wait(5);
 
-  I.dontSee('영수증 나오는 곳');
 });

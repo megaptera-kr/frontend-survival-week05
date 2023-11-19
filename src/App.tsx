@@ -81,11 +81,7 @@ export default function App() {
             }}
           />
         )}
-      {
-        receipt.totalPrice && (
-          <Receipt receipt={receipt} onInitReceipt={handleInitReceipt} />
-        )
-      }
+      <Receipt receipt={receipt} onInitReceipt={handleInitReceipt} />
     </>
   );
 }
