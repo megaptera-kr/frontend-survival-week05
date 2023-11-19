@@ -7,37 +7,40 @@ type LunchBasketProps = {
 };
 
 export default function LunchBasket({ title }: LunchBasketProps) {
-  const { disabled, addedMenus, totalPrice, deleteMenu, orderMenus } =
-    useLaunchBasketHandler();
+  const {
+    disabled, addedMenus, totalPrice, deleteMenu, orderMenus,
+  } = useLaunchBasketHandler();
 
   const priceText = totalPrice.toLocaleString();
 
   return (
-    <Stack $direction='column' id='lunch-basket-container'>
-      <Text as='h2' className='title-section'>
+    <Stack $direction="column" id="lunch-basket-container">
+      <Text as="h2" className="title-section">
         {title}
       </Text>
 
       {addedMenus.length > 0 ? (
-        <Stack id='lunch-basket-wrraper' $direction='column'>
+        <Stack id="lunch-basket-wrraper" $direction="column">
           {addedMenus.map(({ name, price }, index) => (
-            <Stack id='lunch-basket-item' $direction='row' key={Math.random()}>
-              {name}({price.toLocaleString()}
+            <Stack id="lunch-basket-item" $direction="row" key={Math.random()}>
+              {name}
+              (
+              {price.toLocaleString()}
               원)
-              <Button type='button' onClick={() => deleteMenu(index)}>
+              <Button type="button" onClick={() => deleteMenu(index)}>
                 취소
               </Button>
             </Stack>
           ))}
         </Stack>
       ) : (
-        <Stack id='lunch-basket-wrraper-empty' $direction='column'>
+        <Stack id="lunch-basket-wrraper-empty" $direction="column">
           선택된 메뉴가 없습니다.
         </Stack>
       )}
       <Button
-        className='cta-button'
-        type='button'
+        className="cta-button"
+        type="button"
         onClick={orderMenus}
         disabled={disabled}
       >

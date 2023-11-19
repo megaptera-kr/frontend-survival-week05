@@ -1,4 +1,6 @@
-import { Button, Li, TableRow, Td, Ul, Text } from '../../atoms';
+import {
+  Button, Li, TableRow, Td, Ul, Text,
+} from '../../atoms';
 
 import useLaunchBasketHandler from '../hooks/useLaunchBasketHandler';
 
@@ -23,7 +25,7 @@ export default function MenuTableRow({ restauant }: MenuTableRowProps) {
             <Li key={`${id}-${itemName}-${price}`}>
               <Text>{`${itemName}(${price.toLocaleString()}원)`}</Text>
               <Button
-                type='button'
+                type="button"
                 name={`#${itemName}`}
                 onClick={() => addMenu({ id, name: itemName, price })}
               >

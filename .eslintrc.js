@@ -46,6 +46,9 @@ module.exports = {
       'error',
       {
         devDependencies: [
+          'src/mocks/handlers.ts',
+          'src/mocks/server.ts',
+          'src/setupTests.ts',
           '**/*.test.js',
           '**/*.test.jsx',
           '**/*.test.ts',

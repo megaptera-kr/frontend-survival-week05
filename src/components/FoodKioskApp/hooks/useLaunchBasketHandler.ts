@@ -13,7 +13,7 @@ export default function useLaunchBasketHandler() {
 
   const totalPrice = useMemo(
     () => addedMenus.reduce((acc, cur) => acc + (cur.price || 0), 0),
-    [addedMenus]
+    [addedMenus],
   );
 
   const isExistedReceipt = useMemo(() => {
@@ -57,7 +57,6 @@ export default function useLaunchBasketHandler() {
       dispatch?.({ type: 'reset_menu', payload: [] });
 
       setTimeout(() => {
-        console.log('실행');
         dispatch?.({ type: 'delete_receipt', payload: {} });
       }, 5000);
     }
