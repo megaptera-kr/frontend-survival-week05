@@ -71,16 +71,13 @@ export default function App() {
         handleChangeCategory={handleChangeCategory}
       />
       <RestaurantList restaurants={restaurantList} handleAddCart={handleAddCart} />
-      {cartMenu?.length > 0
-        && (
-          <Cart
-            cartMenu={cartMenu}
-            totalPrice={totalPrice}
-            onRegistOrder={() => {
-              handleGetReceiption();
-            }}
-          />
-        )}
+      <Cart
+        cartMenu={cartMenu}
+        totalPrice={totalPrice}
+        onRegistOrder={() => {
+          handleGetReceiption();
+        }}
+      />
       <Receipt receipt={receipt} onInitReceipt={handleInitReceipt} />
     </>
   );

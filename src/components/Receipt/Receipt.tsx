@@ -10,7 +10,7 @@ function Receipt({ receipt, onInitReceipt } : ReceiptProps) {
     <div className="receiptWrap">
       <h2>영수증 나오는 곳</h2>
       <h3>
-        주문번호 :
+        <span>주문번호</span>
         {receipt.id}
       </h3>
       <ul>

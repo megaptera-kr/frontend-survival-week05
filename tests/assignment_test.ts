@@ -43,7 +43,7 @@ Scenario('음식 주문하기 ', ({ I }) => {
 
   I.click('주문하기');
  
-  I.waitForText('주문번호');
+  I.waitForText('주문번호', 8);
   I.see('총 가격: 28500원');
 
   I.wait(5);
