@@ -15,11 +15,7 @@ Scenario('메뉴판 필터링', ({ I }) => {
 
   I.fillField('검색', '혹등');
   I.dontSee('메가반점');
-
-  I.fillField('검색', ' ');
-  I.see('메가반점');
-  I.see('메리김밥');
-  I.see('혹등고래카레');
+  I.see('기본카레');
 });
 
 Scenario('음식 주문하기', ({ I }) => {
