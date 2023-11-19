@@ -6,9 +6,9 @@ describe('RestaurantTable ', () => {
   it('renders restaurantTable', async () => {
     render(<FilterableRestaurantTable />);
 
-    // await waitFor(() => {
-    //   screen.getByText(/메가반점/);
-    //   screen.getByText(/메리김밥/);
-    // });
+    await waitFor(() => {
+      screen.getByText(/검색/);
+      screen.getByText(/식당 이름/);
+    });
   });
 });

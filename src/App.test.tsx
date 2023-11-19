@@ -6,9 +6,9 @@ describe('App ', () => {
   it('renders restaurants', async () => {
     render(<App />);
 
-    // await waitFor(() => {
-    //   screen.getByText(/메가반점/);
-    //   screen.getByText(/메리김밥/);
-    // });
+    await waitFor(() => {
+      const title = screen.getByText(/푸드코트 키오스크/);
+      expect(title).toBeInTheDocument();
+    });
   });
 });

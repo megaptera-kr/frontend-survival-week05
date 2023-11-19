@@ -7,7 +7,8 @@ describe('Cart ', () => {
     render(<Cart />);
 
     await waitFor(() => {
-      screen.getByText(/점심 바구니/);
+      const title = screen.getByText(/점심 바구니/);
+      expect(title).toBeInTheDocument();
     });
   });
 });
