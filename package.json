@@ -41,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
     "msw": "^1.2.0",
@@ -54,6 +55,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "styled-components": "^6.1.1",
+    "styled-reset": "^4.5.1",
     "usehooks-ts": "^2.9.1"
   }
 }
