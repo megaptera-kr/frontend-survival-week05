@@ -1,8 +1,22 @@
-export default function SearchBar() {
+import Categories from './Categories';
+import TextField from './TextField';
+
+type SearchBarType = {
+    filterText: string;
+    categories: string[];
+    setFilterText: (text: string) => void;
+    setFilterCategory: (text: string) => void;
+}
+export default function SearchBar({
+  filterText, setFilterText, categories, setFilterCategory,
+}: SearchBarType) {
   return (
     <div>
-      <label htmlFor="filterTextInput">검색</label>
-      <input type="text" id="filterTextInput" />
+      <TextField label="검색" placeholder="식당 이름" text={filterText} setText={setFilterText} />
+      <Categories
+        categories={categories}
+        setFilterCategory={setFilterCategory}
+      />
     </div>
   );
 }
