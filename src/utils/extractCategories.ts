@@ -1,4 +1,4 @@
-import Restaurant from '../types/Restaurants';
+import type Restaurant from '../types/Restaurants';
 
 export default function extractCategories(restaurants: Restaurant[]): string[] {
   return restaurants.reduce((acc: string[], restaurant: Restaurant) => {

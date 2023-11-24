@@ -1,3 +1,5 @@
+import Button from './Button';
+
 type CategoryType = {
   category: string;
   setFilterCategory: (text: string) => void;
@@ -12,12 +14,7 @@ export default function Category({
         marginRight: '1rem',
       }}
     >
-      <button
-        type="button"
-        onClick={() => setFilterCategory(category)}
-      >
-        {category}
-      </button>
+      <Button type="button" title={category} onClick={() => setFilterCategory(category)} />
     </li>
   );
 }

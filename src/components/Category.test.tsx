@@ -23,7 +23,7 @@ describe('RestaurantTable ', () => {
 
   it('renders Categories', async () => {
     renderCategory();
-    screen.getByText(/힌식/);
+    screen.getByText('한식');
   });
 
   it('listens for category click event', () => {
