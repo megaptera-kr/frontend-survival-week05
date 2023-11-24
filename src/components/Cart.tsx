@@ -45,7 +45,7 @@ export default function Cart({ setReceipt }: CartType) {
           })
         }
       </ul>
-      <Button type="button" title={`합계: ${totalPrice}원`} onClick={handleClickOrder} />
+      <Button type="button" title={`합계: ${totalPrice.toLocaleString()}원 주문`} onClick={handleClickOrder} />
     </div>
   );
 }
