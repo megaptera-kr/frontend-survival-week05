@@ -63,7 +63,6 @@ describe('filterRestaurants', () => {
       const filteredRestaurant = filteredRestaurants[0];
 
       expect(filteredRestaurants.length).toBe(1);
-
       expect(filteredRestaurant.name).toBe(filterText);
     });
   });
