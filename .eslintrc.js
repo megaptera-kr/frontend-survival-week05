@@ -28,6 +28,8 @@ module.exports = {
   },
   rules: {
     'linebreak-style': 0,
+    'react/require-default-props': 0, //  default props 설정해줘야 하는 것 제거
+    'react/button-has-type': 'off',
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
