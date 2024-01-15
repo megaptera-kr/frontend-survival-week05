@@ -1,5 +1,5 @@
 import {
-  fireEvent, getByRole, render, screen,
+  fireEvent, render, screen,
 } from '@testing-library/react';
 
 import CartItem from './CartItem';

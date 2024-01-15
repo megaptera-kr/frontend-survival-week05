@@ -14,7 +14,6 @@ export default function ReceiptPrinter({ receipt }: ReceiptPrinterProps) {
       <p>[영수증 나오는 곳]</p>
     );
   }
-  console.log(receipt);
   const { id, menu, totalPrice } = receipt;
   return (
     <div style={{
