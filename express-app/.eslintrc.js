@@ -6,8 +6,7 @@ module.exports = {
   extends: [],
   overrides: [
     {
-      extends: [
-      ],
+      extends: [],
       files: ['*.ts'],
     },
   ],
