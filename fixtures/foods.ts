@@ -1,4 +1,6 @@
-const foods = [
+import Food from '../src/types/Food';
+
+const foods: Food[] = [
   {
     id: 'FOOD_01',
     name: '짜장면',

@@ -1,4 +1,5 @@
 import Food from '../types/Food';
+import calculateTotalPrice from '../utils/calculateTotalPrice';
 
 type OrderButtonProps = {
   foods: Food[];
@@ -6,7 +7,7 @@ type OrderButtonProps = {
 }
 
 export default function OrderButton({ foods, onClick }: OrderButtonProps) {
-  const totalPrice = foods.reduce((acc, cur) => acc + cur.price, 0);
+  const totalPrice = calculateTotalPrice(foods);
 
   return (
     <button
