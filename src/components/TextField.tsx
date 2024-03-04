@@ -26,7 +26,7 @@ export default function TextField({
   };
 
   return (
-    <>
+    <div className='flex flex-row ml-3 w-full py-2 items-center'>
       <label className={labelClassName} htmlFor={id.current}>
         {labelContent}
       </label>
@@ -38,6 +38,6 @@ export default function TextField({
         value={text}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 }
