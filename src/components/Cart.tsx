@@ -1,4 +1,17 @@
+import useSelectedMenu from '../hooks/useSelectedMenu';
+import MenuItem from './MenuItem';
+
+import { calculateTotalMenuPrice, moneyformat } from '../utils/common';
+
+import MenuType from '../types/MenuType';
+
 export default function Cart() {
+  const { selectedMenuItems, handleRemoveMenu, handleRemoveAllMenu } =
+    useSelectedMenu();
+
+  const totalPrice: number = calculateTotalMenuPrice(selectedMenuItems);
+  const formattedPrice: string = moneyformat(totalPrice);
+
   return (
     <section className='w-full bg-white'>
       <div className='bg-slate-700'>
@@ -6,49 +19,27 @@ export default function Cart() {
       </div>
 
       <ul className='flex flex-col bg-amber-50 rounded-lg p-3'>
-        <li className='flex flex-row justify-between text-sm font-bold my-1'>
-          <div className='flex'>
-            <div className='mr-1'>삼겹살</div>
-            <div>(9,000원)</div>
-          </div>
-          <button
-            className='w-2/12 border-2 border-orange-300 rounded-3xl'
-            type='button'
-          >
-            취소
-          </button>
-        </li>
-        <li className='flex flex-row justify-between text-sm font-bold my-1'>
-          <div className='flex'>
-            <div className='mr-1'>삼겹살</div>
-            <div>(9,000원)</div>
-          </div>
-          <button
-            className='w-2/12 border-2 border-orange-300 rounded-3xl'
-            type='button'
-          >
-            취소
-          </button>
-        </li>
-        <li className='flex flex-row justify-between text-sm font-bold my-1'>
-          <div className='flex'>
-            <div className='mr-1'>삼겹살</div>
-            <div>(9,000원)</div>
-          </div>
-          <button
-            className='w-2/12 border-2 border-orange-300 rounded-3xl'
-            type='button'
-          >
-            취소
-          </button>
-        </li>
+        {selectedMenuItems.map((menuItem: MenuType, index: number) => {
+          const key = `${menuItem.id}-${index}`;
+          return (
+            <MenuItem key={key} menuItem={menuItem}>
+              <button
+                type='button'
+                className='w-2/12 border-2 border-orange-300 rounded-3xl'
+                onClick={() => handleRemoveMenu(menuItem)}
+              >
+                취소
+              </button>
+            </MenuItem>
+          );
+        })}
       </ul>
       <div className='flex justify-end bg-amber-50 mr-3'>
         <button
           className='py-2 px-2 text-sm font-bold bg-teal-400 text-white rounded-xl'
           type='button'
         >
-          합계: 8,000원 주문
+          합계: {formattedPrice}원 주문
         </button>
       </div>
     </section>
