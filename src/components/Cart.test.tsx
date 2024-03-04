@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Cart from './Cart';
-import foods from '../../fixtures/foods';
 
 describe('Cart', () => {
   const setReceipt = jest.fn();
