@@ -1,4 +1,4 @@
-import SearchField from './SearchField';
+import TextField from './TextField';
 import CategoriesButtons from './CategoriesButtons';
 
 type SearchBarProps = {
@@ -14,7 +14,14 @@ export default function SearchBar({
 }: SearchBarProps) {
   return (
     <>
-      <SearchField searchText={searchText} setSearchText={setSearchText} />
+      <TextField
+        labelClassName='flex items-center justify-center whitespace-nowrap font-bold text-red-700 mr-2'
+        labelContent='검색'
+        inputClassName='h-12 text-sm border rounded-lg w-full mr-4'
+        inputPlaceholder='식당 이름...'
+        text={searchText}
+        setText={setSearchText}
+      />
       <CategoriesButtons setCategory={setCategory} />
     </>
   );
