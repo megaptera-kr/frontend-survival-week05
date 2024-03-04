@@ -19,6 +19,7 @@ export default function FilterableRestaurantTable() {
     <>
       <SearchBar
         searchText={restaurantName}
+        searchButton={categoryName}
         setSearchText={handleRestaurantName}
         setCategory={handleCategoryName}
       />

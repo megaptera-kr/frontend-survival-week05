@@ -3,12 +3,14 @@ import CategoriesButtons from './CategoriesButtons';
 
 type SearchBarProps = {
   searchText: string;
+  searchButton: string;
   setSearchText: (v: string) => void;
   setCategory: (v: string) => void;
 };
 
 export default function SearchBar({
   searchText,
+  searchButton,
   setSearchText,
   setCategory,
 }: SearchBarProps) {
@@ -22,7 +24,7 @@ export default function SearchBar({
         text={searchText}
         setText={setSearchText}
       />
-      <CategoriesButtons setCategory={setCategory} />
+      <CategoriesButtons category={searchButton} setCategory={setCategory} />
     </>
   );
 }
