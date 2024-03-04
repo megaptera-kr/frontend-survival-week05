@@ -4,7 +4,7 @@ import readCategories from '../api/categories.api';
 
 import CategoryType from '../types/CategoryType';
 
-function useCategories() {
+function useCategories(): CategoryType[] {
   const [categories, setCategories] = useState<CategoryType[]>([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function useCategories() {
     fetchData();
   }, []);
 
-  return { categories };
+  return categories;
 }
 
 export default useCategories;
