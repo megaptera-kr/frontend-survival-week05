@@ -17,7 +17,7 @@ export default function Menu({ menu }: MenuProps) {
   return (
     <ul className='flex flex-col text-left'>
       {menu.map((menuItem: MenuType, index: number) => {
-        const key = `${menuItem.id}-${index}`;
+        const key = `menu-${menuItem.id}-${index}`;
         return (
           <MenuItem key={key} menuItem={menuItem}>
             <button

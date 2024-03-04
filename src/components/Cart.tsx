@@ -1,16 +1,12 @@
 import useSelectedMenu from '../hooks/useSelectedMenu';
-import MenuItem from './MenuItem';
 
-import { calculateTotalMenuPrice, moneyformat } from '../utils/common';
+import MenuItem from './MenuItem';
+import OrderButtonInCart from './OrderButtonInCart';
 
 import MenuType from '../types/MenuType';
 
 export default function Cart() {
-  const { selectedMenuItems, handleRemoveMenu, handleRemoveAllMenu } =
-    useSelectedMenu();
-
-  const totalPrice: number = calculateTotalMenuPrice(selectedMenuItems);
-  const formattedPrice: string = moneyformat(totalPrice);
+  const { selectedMenuItems, handleRemoveMenu } = useSelectedMenu();
 
   return (
     <section className='w-full bg-white'>
@@ -20,7 +16,7 @@ export default function Cart() {
 
       <ul className='flex flex-col bg-amber-50 rounded-lg p-3'>
         {selectedMenuItems.map((menuItem: MenuType, index: number) => {
-          const key = `${menuItem.id}-${index}`;
+          const key = `cart-${menuItem.id}-${index}`;
           return (
             <MenuItem key={key} menuItem={menuItem}>
               <button
@@ -35,12 +31,7 @@ export default function Cart() {
         })}
       </ul>
       <div className='flex justify-end bg-amber-50 mr-3'>
-        <button
-          className='py-2 px-2 text-sm font-bold bg-teal-400 text-white rounded-xl'
-          type='button'
-        >
-          합계: {formattedPrice}원 주문
-        </button>
+        <OrderButtonInCart menuItems={selectedMenuItems} />
       </div>
     </section>
   );
