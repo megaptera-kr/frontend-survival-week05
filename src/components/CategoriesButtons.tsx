@@ -23,6 +23,7 @@ export default function CategoriesButtons({
             className={`font-bold text-sm w-12 h-8 rounded-lg mr-4 ${
               category === item.name ? 'bg-black text-white' : 'bg-gray-300'
             }`}
+            name={`#${item.name}`}
             onClick={() => setCategory(item.name)}
           >
             {item.name}

@@ -23,6 +23,7 @@ export default function Menu({ menu }: MenuProps) {
             <button
               type='button'
               className='font-bold bg-teal-400 text-white rounded-xl mr-2 w-3/12 h-8'
+              name={`#${menuItem.name}`}
               onClick={() => handleAddMenu(menuItem)}
             >
               선택

@@ -7,7 +7,7 @@ describe('TextField 컴포넌트', () => {
   const labelContent = 'search';
   const inputPlaceholder = '...search';
   const text = 'text';
-  const setTextMock = jest.fn();
+  const mockSetText = jest.fn();
   const rendering = () => {
     render(
       <TextField
@@ -16,13 +16,13 @@ describe('TextField 컴포넌트', () => {
         inputClassName={inputClassName}
         inputPlaceholder={inputPlaceholder}
         text={text}
-        setText={setTextMock}
+        setText={mockSetText}
       />,
     );
   };
 
   beforeEach(() => {
-    setTextMock.mockClear();
+    mockSetText.mockClear();
   });
 
   it('화면 렌더링 되었을 때', () => {
@@ -38,6 +38,6 @@ describe('TextField 컴포넌트', () => {
     const inputElement = screen.getByPlaceholderText(inputPlaceholder);
     fireEvent.change(inputElement, { target: { value: newText } });
 
-    expect(setTextMock).toBeCalledWith(newText);
+    expect(mockSetText).toBeCalledWith(newText);
   });
 });
