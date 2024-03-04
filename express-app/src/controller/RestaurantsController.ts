@@ -7,13 +7,11 @@ import RestaurantType from '../types/RestaurantType';
 function RestaurantController(app: Express) {
   app.get('/restaurants', (req, res) => {
     const { restaurantName, categoryName } = req.query;
-    if (!categoryName || categoryName === '전체') {
-      res.send(restaurants);
-    }
 
     const filteredRestaurants = restaurants.filter(
       (restaurant: RestaurantType) => {
-        const isCategoryMatch = restaurant.category === categoryName;
+        const isCategoryMatch =
+          categoryName === '전체' || restaurant.category === categoryName;
         const isNameMatch =
           !restaurantName ||
           restaurant.name.includes(restaurantName?.toString());

@@ -6,6 +6,8 @@ type TextFieldProps = {
   labelContent: string;
   inputClassName: string;
   inputPlaceholder: string;
+  text: string;
+  setText: (v: string) => void;
 };
 
 export default function TextField({
@@ -13,8 +15,15 @@ export default function TextField({
   labelContent,
   inputClassName,
   inputPlaceholder,
+  text,
+  setText,
 }: TextFieldProps) {
   const id = useRef(`input-label-${uuidv4()}`);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setText(value);
+  };
 
   return (
     <>
@@ -26,6 +35,8 @@ export default function TextField({
         id={id.current}
         type='text'
         placeholder={inputPlaceholder}
+        value={text}
+        onChange={handleChange}
       />
     </>
   );

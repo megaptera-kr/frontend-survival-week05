@@ -1,4 +1,23 @@
-export default function RestaurantTable() {
+import useRestaurants from '../hooks/useRestaurants';
+
+import RestaurantRow from './RestaurantRow';
+
+import RestaurantType from '../types/RestaurantsType';
+
+type RestaurantTableProps = {
+  restaurantName: string;
+  categoryName: string;
+};
+
+export default function RestaurantTable({
+  restaurantName,
+  categoryName,
+}: RestaurantTableProps) {
+  const filteredRestaurants: RestaurantType[] = useRestaurants(
+    restaurantName,
+    categoryName,
+  );
+
   return (
     <section className='mx-3 py-4'>
       <table className='w-full'>
@@ -10,58 +29,9 @@ export default function RestaurantTable() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className='text-center whitespace-nowrap border'>메가</td>
-            <td className='text-center whitespace-nowrap border'>중식</td>
-            <td className='text-center whitespace-nowrap border'>
-              <ul className='flex flex-col text-left'>
-                <li className='flex flex-row items-center w-full py-0.2 text-sm'>
-                  <span className='w-9/12 ml-2'>짜장면(8,000원)</span>
-                  <button
-                    className='font-bold bg-teal-400 text-white rounded-xl mr-2 w-3/12 h-8'
-                    type='button'
-                  >
-                    선택
-                  </button>
-                </li>
-                <li className='flex flex-row items-center w-full py-0.2 text-sm'>
-                  <span className='w-9/12 ml-2'>짜장면(8,000원)</span>
-                  <button
-                    className='font-bold bg-teal-400 text-white rounded-xl mr-2 w-3/12 h-8'
-                    type='button'
-                  >
-                    선택
-                  </button>
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td className='text-center whitespace-nowrap border'>메가</td>
-            <td className='text-center whitespace-nowrap border'>중식</td>
-            <td className='text-center whitespace-nowrap border'>
-              <ul className='flex flex-col text-left'>
-                <li className='flex flex-row items-center w-full py-0.2 text-sm'>
-                  <span className='w-9/12 ml-2'>짜장면(8,000원)</span>
-                  <button
-                    className='font-bold bg-teal-400 text-white rounded-xl mr-2 w-3/12 h-8'
-                    type='button'
-                  >
-                    선택
-                  </button>
-                </li>
-                <li className='flex flex-row items-center w-full py-0.2 text-sm'>
-                  <span className='w-9/12 ml-2'>짜장면(8,000원)</span>
-                  <button
-                    className='font-bold bg-teal-400 text-white rounded-xl mr-2 w-3/12 h-8'
-                    type='button'
-                  >
-                    선택
-                  </button>
-                </li>
-              </ul>
-            </td>
-          </tr>
+          {filteredRestaurants.map((restaurant: RestaurantType) => (
+            <RestaurantRow key={restaurant.id} restaurant={restaurant} />
+          ))}
         </tbody>
       </table>
     </section>
