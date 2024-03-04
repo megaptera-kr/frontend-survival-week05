@@ -15,7 +15,7 @@ export default function CategoriesButtons() {
             <Button
               key={category.id}
               className='font-bold bg-black text-white text-sm w-12 h-8 rounded-lg mr-4'
-              text={category.name}
+              content={category.name}
             />
           ),
         )}

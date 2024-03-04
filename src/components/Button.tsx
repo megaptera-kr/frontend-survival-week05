@@ -1,12 +1,14 @@
+import { ReactNode } from 'react';
+
 type ButtonPropsType = {
   className: string;
-  text: string;
+  content: string | ReactNode;
 };
 
-export default function Button({ className, text }: ButtonPropsType) {
+export default function Button({ className, content }: ButtonPropsType) {
   return (
     <button className={className} type='button'>
-      {text}
+      {content}
     </button>
   );
 }
