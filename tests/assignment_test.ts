@@ -1,13 +1,70 @@
-// Feature('과제 테스트');
+Feature('과제 테스트');
 
-// Scenario('메뉴판 필터링', ({ I }) => {
-//   I.amOnPage('/');
+Scenario('메뉴판 필터링', ({ I }) => {
+  I.amOnPage('/');
 
-//   // TODO: E2E 테스트를 작성해주세요.
-// });
+  I.see('푸드코트 키오스크');
+  I.see('점심 바구니');
+  I.see('합계: 0원 주문');
+  I.see('검색');
 
-// Scenario('음식 주문하기', ({ I }) => {
-//   I.amOnPage('/');
+  I.see('메가반점');
+  I.see('메리김밥');
+  I.see('데브부엌');
+  I.see('로드스시');
+  I.see('혹등고래카레');
+  I.see('메가김치찌개');
 
-//   // TODO: E2E 테스트를 작성해주세요.
-// });
+  I.see('전체');
+  I.see('한식');
+  I.see('중식');
+  I.see('일식');
+
+  I.click('중식');
+  I.see('탕수육');
+  I.dontSee('김밥');
+
+  I.click('한식');
+  I.see('메리김밥');
+  I.see('데브부엌');
+  I.see('메가김치찌개');
+  I.see('김밥');
+  I.see('제육덮밥');
+  I.see('김치찌개1인');
+
+  I.click('일식');
+  I.see('로드스시');
+  I.see('스페셜초밥');
+
+  I.click('전체');
+
+  I.fillField('검색', 'a');
+  I.dontSee('0원)');
+
+  I.fillField('검색', '스');
+  I.see('모듬초밥');
+  I.see('특선초밥');
+  I.dontSee('제육김밥');
+
+  I.fillField('검색', ' ');
+  I.see('메가반점');
+  I.see('메리김밥');
+  I.see('데브부엌');
+  I.see('로드스시');
+  I.see('혹등고래카레');
+  I.see('메가김치찌개');
+});
+
+Scenario('음식 주문하기', ({ I }) => {
+  I.amOnPage('/');
+
+  I.see('푸드코트 키오스크');
+
+  I.click({ name: '#짜장면' });
+  I.click({ name: '#탕수육' });
+  I.click({ name: '#김밥' });
+  I.click('합계: 25,500원 주문');
+
+  I.waitForText('주문번호');
+  I.see('총 가격: 25,500원');
+});
