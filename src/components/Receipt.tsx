@@ -36,7 +36,7 @@ export default function Receipt({ receipt }: ReceiptProps) {
           })}
         </ul>
       </div>
-      <p className='font-bold'>총 가격: ({moneyformat(totalPrice)})원</p>
+      <p className='font-bold'>총 가격: {moneyformat(totalPrice)}원</p>
     </section>
   );
 }

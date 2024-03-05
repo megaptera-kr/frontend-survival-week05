@@ -7,7 +7,7 @@ async function readRestaurants(
   const url = new URL('http://localhost:3000/restaurants');
   const params = new URLSearchParams();
 
-  params.append('restaurantName', restaurantName);
+  params.append('restaurantName', restaurantName.trim());
   params.append('categoryName', categoryName);
   url.search = params.toString();
 
