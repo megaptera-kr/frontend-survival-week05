@@ -1,12 +1,35 @@
-import { useReadLocalStorage } from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 import Orders from '../../types/Orders';
 import OrderItem from '../OrderItem';
 import { convertKRW } from '../../utils';
 import getTotalPrice from '../../utils/getTotalPrice';
+import usePostOrders from '../../hooks/useCreateOrders';
+import ReceiptType from '../../types/Receipt';
 
-function Orders() {
-  const orders = useReadLocalStorage<Orders>('orders');
+type OrdersProps = {
+  setReceipt:React.Dispatch<React.SetStateAction<ReceiptType>>
+}
+
+function Orders({ setReceipt }:OrdersProps) {
+  const [orders, setOrders] = useLocalStorage<Orders>(
+    'orders',
+    { menu: [], totalPrice: 0 },
+  );
   const totalPrice = getTotalPrice(orders?.menu ?? []);
+
+  const removeMenuItem = (id:string) => {
+    const filteredMenu = orders.menu.filter((menuItem) => menuItem.id !== id);
+    return () => { setOrders({ ...orders, menu: filteredMenu }); };
+  };
+
+  const { postOrders } = usePostOrders();
+
+  const handleSubmit = async () => {
+    const receipt = await postOrders({ menu: orders.menu, totalPrice });
+    setOrders({ menu: [], totalPrice: 0 });
+    setReceipt(receipt);
+  };
+
   return (
     <div>
       <h2>점심 바구니</h2>
@@ -16,11 +39,12 @@ function Orders() {
             key={order.id}
             name={order.name}
             price={order.price}
+            removeMenuItem={removeMenuItem(order.id)}
           />
         ))}
       </ul>
 
-      <button type="button">
+      <button type="button" onClick={handleSubmit}>
         합계:
         {convertKRW(totalPrice ?? 0)}
         {' '}
