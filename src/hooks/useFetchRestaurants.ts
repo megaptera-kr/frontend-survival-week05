@@ -10,6 +10,7 @@ function useFetchRestaurants() {
       const data = await response.json();
       setRestaurants(data.restaurants);
     }
+    fetchRestaurants();
   }, []);
 
   return restaurants;

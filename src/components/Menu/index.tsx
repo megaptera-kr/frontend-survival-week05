@@ -7,7 +7,7 @@ type MenuProps = {
 
 function Menu({ menu }:MenuProps) {
   return (
-    <ul>
+    <ul style={{ listStyle: 'none' }}>
       {menu.map(({ id, name, price }) => (
         <MenuItem
           key={id}
