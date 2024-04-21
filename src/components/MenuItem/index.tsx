@@ -9,7 +9,6 @@ type MenuItemProps = {
 }
 
 function MenuItem({ name, price }:MenuItemProps) {
-  const id = useRef<string>(`${name}-${new Date()}`);
   const [orders, setOrders] = useLocalStorage<Orders>(
     'orders',
     { menu: [], totalPrice: 0 },
@@ -19,7 +18,7 @@ function MenuItem({ name, price }:MenuItemProps) {
     setOrders({
       ...orders,
       menu: [...orders.menu, {
-        id: id.current,
+        id: Date.now().toString(),
         name,
         price,
       }],
