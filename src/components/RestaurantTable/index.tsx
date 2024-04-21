@@ -1,27 +1,18 @@
-import useFetchRestaurants from '../../hooks/useFetchRestaurants';
-import Menu from '../Menu';
+import Restaurant from '../../types/Restaurant';
+import RestaurantTableHeader from '../RestaurantTableHeader';
+import RestaurantTableRow from '../RestaurantTableRow';
 
-function RestaurantTable() {
-  const restaurants = useFetchRestaurants(); // TODO: MSW 테스트
+type RestaurantTableProps = {
+  restaurants:Restaurant[]
+}
 
+function RestaurantTable({ restaurants }: RestaurantTableProps) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>식당 이름</th>
-          <th>종류</th>
-          <th>메뉴</th>
-        </tr>
-      </thead>
+    <table style={{ marginTop: '1rem' }}>
+      <RestaurantTableHeader />
       <tbody>
         {restaurants.map((restaurant) => (
-          <tr key={restaurant.id}>
-            <td>{restaurant.name}</td>
-            <td>{restaurant.category}</td>
-            <td>
-              <Menu menu={restaurant.menu} />
-            </td>
-          </tr>
+          <RestaurantTableRow key={restaurant.id} restaurant={restaurant} />
         ))}
       </tbody>
     </table>
