@@ -2,12 +2,16 @@ import Category from '../../types/Category';
 import CategoryButton from '../CategoryButton';
 
 type CategoryFilterProps = {
-  categories:Category[]
-  selectedCategory:Category
-  setSelectedCategory:(category:Category) => void
+  categories: Category[]
+  selectedCategory: Category
+  setSelectedCategory: (category: Category) => void
 }
 
-function CategoryFilter({ categories, selectedCategory, setSelectedCategory }:CategoryFilterProps) {
+function CategoryFilter({
+  categories,
+  selectedCategory,
+  setSelectedCategory,
+}: CategoryFilterProps) {
   return (
     <div>
       {categories.map((category) => (
