@@ -1,7 +1,6 @@
 import { useLocalStorage } from 'usehooks-ts';
-import { useRef } from 'react';
-import { convertKRW } from '../../utils';
 import Orders from '../../types/Orders';
+import { convertKRW } from '../../utils';
 
 type MenuItemProps = {
   name:string;
