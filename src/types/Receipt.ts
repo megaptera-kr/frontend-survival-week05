@@ -1,9 +1,7 @@
-import MenuType from './MenuType';
+import Orders from './Orders';
 
 type ReceiptType = {
   id:string;
-  menu:MenuType[],
-  totalPrice:number
-}
+} & Orders
 
 export default ReceiptType;
