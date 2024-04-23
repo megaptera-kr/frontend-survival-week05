@@ -14,7 +14,7 @@ function FilterableRestaurantTable() {
 
   const filteredRestaurants = filterRestaurants(
     restaurants,
-    { text: filterText, category: selectedCategory },
+    { text: filterText.trim(), category: selectedCategory },
   );
 
   const categories = getAllCategories(restaurants);
