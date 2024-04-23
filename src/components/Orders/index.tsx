@@ -1,19 +1,21 @@
 import { useLocalStorage } from 'usehooks-ts';
-import Orders from '../../types/Orders';
-import OrderItem from '../OrderItem';
+import usePostOrders from '../../hooks/useCreateOrders';
+import OrdersType from '../../types/Orders';
+import ReceiptType from '../../types/Receipt';
 import { convertKRW } from '../../utils';
 import getTotalPrice from '../../utils/getTotalPrice';
-import usePostOrders from '../../hooks/useCreateOrders';
-import ReceiptType from '../../types/Receipt';
+import OrderItem from '../OrderItem';
 
 type OrdersProps = {
   setReceipt:React.Dispatch<React.SetStateAction<ReceiptType>>
 }
 
+const initOrders: OrdersType = { menu: [], totalPrice: 0 };
+
 function Orders({ setReceipt }:OrdersProps) {
-  const [orders, setOrders] = useLocalStorage<Orders>(
+  const [orders, setOrders] = useLocalStorage<OrdersType>(
     'orders',
-    { menu: [], totalPrice: 0 },
+    initOrders,
   );
   const totalPrice = getTotalPrice(orders?.menu ?? []);
 
@@ -26,7 +28,7 @@ function Orders({ setReceipt }:OrdersProps) {
 
   const handleSubmit = async () => {
     const receipt = await postOrders({ menu: orders.menu, totalPrice });
-    setOrders({ menu: [], totalPrice: 0 });
+    setOrders(initOrders);
     setReceipt(receipt);
   };
 
@@ -44,7 +46,11 @@ function Orders({ setReceipt }:OrdersProps) {
         ))}
       </ul>
 
-      <button type="button" onClick={handleSubmit}>
+      <button
+        type="button"
+        onClick={handleSubmit}
+        disabled={orders.menu.length === 0}
+      >
         합계:
         {convertKRW(totalPrice ?? 0)}
         {' '}
