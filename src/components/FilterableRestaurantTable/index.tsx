@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import useFetchRestaurants from '../../hooks/useFetchRestaurants';
 import Category from '../../types/Category';
+import { filterRestaurants, getAllCategories } from '../../utils';
 import CategoryFilter from '../CategoryFilter';
 import RestaurantTable from '../RestaurantTable';
 import TextField from '../TextField';
-import filterRestaurants from '../../utils/filterRestaurants';
 
 function FilterableRestaurantTable() {
   const [filterText, setFilterText] = useState<string>('');
@@ -17,10 +17,7 @@ function FilterableRestaurantTable() {
     { text: filterText, category: selectedCategory },
   );
 
-  const categories:Category[] = [
-    '전체',
-    ...restaurants.map((restaurant) => restaurant.category),
-  ];
+  const categories = getAllCategories(restaurants);
 
   return (
     <div className="filterableRestaurantTable">
