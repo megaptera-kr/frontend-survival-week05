@@ -1,4 +1,8 @@
 import convertKRW from './convertKRW';
+import filterRestaurants from './filterRestaurants';
+import getAllCategories from './getAllCategories';
+import getTotalPrice from './getTotalPrice';
 
-// eslint-disable-next-line import/prefer-default-export
-export { convertKRW };
+export {
+  convertKRW, filterRestaurants, getAllCategories, getTotalPrice,
+};

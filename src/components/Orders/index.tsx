@@ -2,8 +2,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import usePostOrders from '../../hooks/useCreateOrders';
 import OrdersType from '../../types/Orders';
 import ReceiptType from '../../types/Receipt';
-import { convertKRW } from '../../utils';
-import getTotalPrice from '../../utils/getTotalPrice';
+import { convertKRW, getTotalPrice } from '../../utils';
 import OrderItem from '../OrderItem';
 
 type OrdersProps = {
