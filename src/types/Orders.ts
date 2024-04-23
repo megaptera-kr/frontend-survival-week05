@@ -1,8 +1,8 @@
 import MenuType from './MenuType';
 
-type Orders = {
+type OrdersType = {
   menu:MenuType[]
   totalPrice:number
 }
 
-export default Orders;
+export default OrdersType;

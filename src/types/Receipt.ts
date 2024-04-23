@@ -1,7 +1,7 @@
-import Orders from './Orders';
+import OrdersType from './Orders';
 
 type ReceiptType = {
   id:string;
-} & Orders
+} & OrdersType
 
 export default ReceiptType;

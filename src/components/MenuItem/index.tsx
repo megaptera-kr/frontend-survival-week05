@@ -1,5 +1,5 @@
 import { useLocalStorage } from 'usehooks-ts';
-import Orders from '../../types/Orders';
+import OrdersType from '../../types/Orders';
 import { convertKRW } from '../../utils';
 
 type MenuItemProps = {
@@ -8,7 +8,7 @@ type MenuItemProps = {
 }
 
 function MenuItem({ name, price }:MenuItemProps) {
-  const [orders, setOrders] = useLocalStorage<Orders>(
+  const [orders, setOrders] = useLocalStorage<OrdersType>(
     'orders',
     { menu: [], totalPrice: 0 },
   );

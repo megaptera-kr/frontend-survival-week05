@@ -1,8 +1,8 @@
-import Orders from '../types/Orders';
+import OrdersType from '../types/Orders';
 import ReceiptType from '../types/Receipt';
 
 function useCreateOrders() {
-  async function postOrders(orders:Orders):Promise<ReceiptType> {
+  async function postOrders(orders:OrdersType):Promise<ReceiptType> {
     const url = 'http://localhost:3000/orders';
 
     const response = await fetch(url, {
