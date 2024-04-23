@@ -12,7 +12,13 @@ function MenuItem({ menuItem, addMenuItem }:MenuItemProps) {
       <span style={{ marginRight: '1rem' }}>
         {`${menuItem.name}(${convertKRW(menuItem.price)})`}
       </span>
-      <button type="button" onClick={addMenuItem}>선택</button>
+      <button
+        type="button"
+        name={`#${menuItem.name}`}
+        onClick={addMenuItem}
+      >
+        선택
+      </button>
     </li>
   );
 }

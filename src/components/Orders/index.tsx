@@ -47,6 +47,7 @@ function Orders({ setReceipt }:OrdersProps) {
 
       <button
         type="button"
+        name="#order"
         onClick={handleSubmit}
         disabled={orders.menu.length === 0}
       >
