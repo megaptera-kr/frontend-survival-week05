@@ -1,32 +1,16 @@
-import { useLocalStorage } from 'usehooks-ts';
-import OrdersType from '../../types/Orders';
+import MenuType from '../../types/MenuType';
 import { convertKRW } from '../../utils';
 
 type MenuItemProps = {
-  name:string;
-  price:number
+  menuItem: MenuType
+  addMenuItem: () => void
 }
 
-function MenuItem({ name, price }:MenuItemProps) {
-  const [orders, setOrders] = useLocalStorage<OrdersType>(
-    'orders',
-    { menu: [], totalPrice: 0 },
-  );
-
-  const addMenuItem = () => {
-    setOrders({
-      ...orders,
-      menu: [...orders.menu, {
-        id: Date.now().toString(),
-        name,
-        price,
-      }],
-    });
-  };
+function MenuItem({ menuItem, addMenuItem }:MenuItemProps) {
   return (
     <li style={{ marginBlock: '0.5rem' }}>
       <span style={{ marginRight: '1rem' }}>
-        {`${name}(${convertKRW(price)})`}
+        {`${menuItem.name}(${convertKRW(menuItem.price)})`}
       </span>
       <button type="button" onClick={addMenuItem}>선택</button>
     </li>
