@@ -21,7 +21,7 @@ function Orders({ setReceipt }:OrdersProps) {
 
   const removeMenuItem = (id:string) => {
     const filteredMenu = orders.menu.filter((menuItem) => menuItem.id !== id);
-    return () => { setOrders({ ...orders, menu: filteredMenu }); };
+    return () => setOrders({ ...orders, menu: filteredMenu });
   };
 
   const { postOrders } = usePostOrders();
