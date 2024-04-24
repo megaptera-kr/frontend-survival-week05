@@ -13,7 +13,7 @@ describe('MenuItem 컴포넌트', () => {
     render(<MenuItem menuItem={menuItem} addMenuItem={addMenuItem} />);
 
     it('name과 원화로 변환된 금액, "선택" 버튼이 렌더링된다.', () => {
-      const krwRegExp = new RegExp(`${convertKRW(menuItem.price)}`);
+      const krwRegExp = new RegExp(convertKRW(menuItem.price));
       screen.getByText(/짜장면/);
       screen.getByText(krwRegExp);
       const selectBtn = screen.getByRole('button');

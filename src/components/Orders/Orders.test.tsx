@@ -7,6 +7,13 @@ import OrdersType from '../../types/Orders';
 const context = describe;
 
 describe('Orders 컴포넌트', () => {
+  // given
+  const orders:OrdersType = {
+    menu: [
+      { id: '1', name: '짜장면', price: 8000 },
+      { id: '2', name: '김밥', price: 5000 }],
+    totalPrice: 13000,
+  };
   const setReceipt = jest.fn();
 
   beforeEach(() => {
@@ -34,17 +41,13 @@ describe('Orders 컴포넌트', () => {
 
   // when
   context('로컬스토리지에 저장된 orders의 menu가 빈 배열이 아니라면', () => {
-    // then
-    it('orders item list를 렌더링한다.', () => {
-      const orders:OrdersType = {
-        menu: [
-          { id: '1', name: '짜장면', price: 8000 },
-          { id: '2', name: '김밥', price: 5000 }],
-        totalPrice: 13000,
-      };
+    beforeEach(() => {
       window.localStorage.setItem('orders', JSON.stringify(orders));
       render(<Orders setReceipt={setReceipt} />);
+    });
 
+    // then
+    it('orders item list를 렌더링한다.', () => {
       const items = screen.getAllByRole('listitem');
       items.forEach((_, index) => {
         const regExp = new RegExp(`${orders.menu[index].name}`);
@@ -55,17 +58,13 @@ describe('Orders 컴포넌트', () => {
 
   // when
   context('orders item의 "취소"버튼을 클릭하면', () => {
-    // then
-    it('해당 item은 화면에 렌더링되지 않는다.', () => {
-      const orders:OrdersType = {
-        menu: [
-          { id: '1', name: '짜장면', price: 8000 },
-          { id: '2', name: '김밥', price: 5000 }],
-        totalPrice: 13000,
-      };
+    beforeEach(() => {
       window.localStorage.setItem('orders', JSON.stringify(orders));
       render(<Orders setReceipt={setReceipt} />);
+    });
 
+    // then
+    it('해당 item은 화면에 렌더링되지 않는다.', () => {
       const cancelBtns = screen.getAllByText('취소');
 
       fireEvent.click(cancelBtns[0]);
@@ -77,12 +76,6 @@ describe('Orders 컴포넌트', () => {
   // when
   context('주문 버튼을 클릭했을 때', () => {
     beforeEach(() => {
-      const orders:OrdersType = {
-        menu: [
-          { id: '1', name: '짜장면', price: 8000 },
-          { id: '2', name: '김밥', price: 5000 }],
-        totalPrice: 13000,
-      };
       window.localStorage.setItem('orders', JSON.stringify(orders));
       render(<Orders setReceipt={setReceipt} />);
 

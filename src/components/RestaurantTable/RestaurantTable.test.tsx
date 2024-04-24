@@ -46,7 +46,7 @@ describe('RestaurantTable 컴포넌트', () => {
       restaurants.forEach((restaurant) => {
         const { menu } = restaurant;
         menu.forEach((menuItem) => {
-          const regex = new RegExp(`${menuItem.name}`);
+          const regex = new RegExp(menuItem.name);
           const menuItemElems = screen.getAllByText(regex);
           menuItemElems.forEach((menuItemElem) => {
             expect(menuItemElem).toBeInTheDocument();
