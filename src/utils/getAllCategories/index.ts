@@ -5,7 +5,9 @@ function getAllCategories(restaurants?:Restaurant[]|null):Category[] {
   if (!restaurants) {
     return ['전체'];
   }
-  return ['전체', ...restaurants.map((restaurant) => restaurant.category)];
+  return restaurants?.reduce((acc:Category[], restaurant) => (acc.includes(restaurant.category)
+    ? acc
+    : [...acc, restaurant.category]), ['전체']);
 }
 
 export default getAllCategories;
