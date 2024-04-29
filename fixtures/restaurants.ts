@@ -1,6 +1,7 @@
+import Restaurant from '../src/types/Restaurant';
 import foods from './foods';
 
-const restaurants = [
+const restaurants:Restaurant[] = [
   {
     id: 'RESTAURANT_01',
     category: '중식',

@@ -1,4 +1,6 @@
-const foods = [
+import MenuType from '../src/types/MenuType';
+
+const foods:MenuType[] = [
   {
     id: 'FOOD_01',
     name: '짜장면',
